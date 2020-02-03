@@ -1,7 +1,5 @@
 # Styled-React
 
-======
-
 Library for styling React components using `css-in-js` and theming.
 
 `npm install @cbryant24/styled-react`
@@ -10,7 +8,7 @@ Library for styling React components using `css-in-js` and theming.
 
 The following html elements are exported for use in component rendering and styling
 
-* `Box - Default Div type which can be set to any html type` [see isA attribute](#Element-Types)
+* `Box - Default Div type which can be set to any html type` <small>[see isA attribute](#Element-Types)</small>
 * `Div`
 * `FlexDiv - Div with the flex type set`
 * `GridDiv - Div with the grid type set`
@@ -26,7 +24,7 @@ The following html elements are exported for use in component rendering and styl
 * `Ul`
 * `FlexUl - Ul with the flex type set`
 * `GridUl - Ul with the grid type set`
-* `Field - See Field instructions` [here](#Field)
+* `Field - See Field instructions` <small>[here](#Field)</small>
 
 Styles can be applied to components by writing css styles directly as props
 
@@ -62,7 +60,7 @@ Theming allow for consistent styling by providing preset scales for various css 
 
 See table for theming properties
 
-See default theming option for explanations on theme properties and reference [here](https://github.com/cbryant24/styled-react/blob/master/lib/theme.js))
+See default theming option for explanations on theme properties and reference [here](https://github.com/cbryant24/styled-react/blob/master/lib/theme.js)
 
 For detailed guide and philosophy behind theming see [styled-system theming guide](https://styled-system.com/guides/theming)
 
