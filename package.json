@@ -1,6 +1,6 @@
 {
   "name": "@cbryant24/styled-react",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "description": "Styles can be applied to components by writing css styles directly as props",
   "main": "dist/index.js",
   "keywords": [
