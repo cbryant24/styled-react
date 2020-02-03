@@ -20,9 +20,6 @@
     "test": "jest --config ./jest.config.json",
     "test:watch": "npm run test -- --watch",
     "build": "webpack --config-name styled-react-npm --mode production",
-    "deploy": "gh-pages -d examples/dist",
-    "publish-demo": "npm run build && npm run deploy",
-    "prepublishOnly": "npm run transpile"
   },
   "peerDependencies": {
     "react": "^16.12.0",
