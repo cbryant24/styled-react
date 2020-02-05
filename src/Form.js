@@ -1,8 +1,8 @@
 import React from 'react';
-import { Div, H1 } from '@cbryant24/styled-react';
+import { Div } from '@cbryant24/styled-react';
 import Form from '@cbryant24/styled-react-form';
 
-const App = () => {
+const Form = () => {
   const signinValidation = {
     title: 'signup',
     description: 'User Signin',
@@ -69,9 +69,15 @@ const App = () => {
 
   return (
     <Div width="20rem" height="20rem" themeStyle="colorBg" fontSize={[1]}>
-      <H1>Hello World</H1>
+      <Form
+        onSubmit={userSignin}
+        form={form}
+        inputs={inputs}
+        validate={signinValidation}
+        buttons={buttons}
+      />
     </Div>
   )
 }
 
-export default App;
+export default Form;
