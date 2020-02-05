@@ -1,57 +1,83 @@
 import React from 'react';
-import axios from 'axios';
 import { Div } from '@cbryant24/styled-react';
-export const dataReducer = (state, action) => {
-  if (action.type === 'SET_ERROR') {
-    return { ...state, list: [], error: true };
-  }
-  if (action.type === 'SET_LIST') {
-    return { ...state, list: action.list, error: null };
-  }
-  throw new Error();
-};
-const initialData = {
-  list: [],
-  error: null,
-};
+import Form from '@cbryant24/styled-react-form';
+
 const App = () => {
-  const [counter, setCounter] = React.useState(0);
-  const [data, dispatch] = React.useReducer(dataReducer, initialData);
-  React.useEffect(() => {
-    axios
-      .get('http://hn.algolia.com/api/v1/search?query=react')
-      .then(response => {
-        dispatch({ type: 'SET_LIST', list: response.data.hits });
-      })
-      .catch(() => {
-        dispatch({ type: 'SET_ERROR' });
-      });
-  }, []);
+  const signinValidation = {
+    title: 'signup',
+    description: 'User Signin',
+    inputs: [
+      {
+        name: 'email',
+        blur: 'emptyOrEmail',
+        change: 'emptyOrSafeString'
+      },
+      {
+        name: 'password',
+        blur: 'emptyOrSafeString',
+        change: 'emptyOrSafeString'
+      }
+    ],
+    inputErrorMessages: {
+        email: 'Email should be in email format',
+        password: 'Password should only contain letters, numbers, and ! @ # $ % characters'
+    },
+    submit: [
+      {
+        name: 'email',
+        validate: 'safeString'
+      },
+      {
+        name: 'password',
+        validate: 'safeString',
+      },
+    ],
+    submitErrorMessages: {
+      email: 'There was an error in the email field',
+      password: 'There was an error in the password field'
+    }
+  }
+
+  const inputs = [
+    {
+      data: { type: 'email', name: 'email', label: 'email', placeholder: 'enter email', required: true },
+      fieldStyle: 'field',
+      inputStyle: { themeStyle: 'inputNorm'}
+    },
+    {
+      data: { type: 'password', name: 'password', label: 'password', placeholder: 'enter password', required: true },
+      fieldStyle: { width: [1], height: ['15%'], justifyContent: 'space-between', flexDirection: 'column'},
+      inputStyle: { themeStyle: 'inputNorm'}
+    }
+  ];
+
+  const buttons = [
+    { text: 'Submit', type: 'submit', cb: null, style: 'squareButton' },
+    { text: 'Cancel', type: 'cancel', cb: null, style: 'squareButton' }
+  ];
+
+  const form = {
+    data: { name: 'signinForm', submit: 'signup' },
+    style: 'authForm'
+  }
+
+  
+
+  function userSignin() {
+    debugger
+  }
+
   return (
-    <Div
-      backgroundColor="red"
-    >
-      <h1>My Counter</h1>
-      <Counter counter={counter} />
-      <button type="button" onClick={() => setCounter(counter + 1)}>
-        Increment
-      </button>
-      <button type="button" onClick={() => setCounter(counter - 1)}>
-        Decrement
-      </button>
-      <h2>My Async Data</h2>
-      {data.error && <div className="error">Error</div>}
-      <ul>
-        {data.list.map(item => (
-          <li key={item.objectID}>{item.title}</li>
-        ))}
-      </ul>
+    <Div width="20rem" height="20rem" themeStyle="colorBg" fontSize={[1]}>
+      <Form
+        onSubmit={userSignin}
+        form={form}
+        inputs={inputs}
+        validate={signinValidation}
+        buttons={buttons}
+      />
     </Div>
-  );
-};
-export const Counter = ({ counter }) => (
-  <div>
-    <p>{counter}</p>
-  </div>
-);
+  )
+}
+
 export default App;
