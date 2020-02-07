@@ -4,3 +4,4 @@ examples
 .gitignore
 node_modules
 webpack.config.js
+.local-notes.md

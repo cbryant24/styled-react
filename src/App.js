@@ -1,5 +1,5 @@
 import React from 'react';
-import { Div, H1 } from '@cbryant24/styled-react';
+import { Div, Field } from '@cbryant24/styled-react';
 import Form from '@cbryant24/styled-react-form';
 
 const App = () => {
@@ -41,35 +41,40 @@ const App = () => {
   const inputs = [
     {
       data: { type: 'email', name: 'email', label: 'email', placeholder: 'enter email', required: true },
-      fieldStyle: 'field',
-      inputStyle: { themeStyle: 'inputNorm'}
+      fieldStyle: { themeStyle: 'fieldMain'},
+      inputStyle: { themeStyle: 'inputMain'}
     },
     {
       data: { type: 'password', name: 'password', label: 'password', placeholder: 'enter password', required: true },
-      fieldStyle: { width: [1], height: ['15%'], justifyContent: 'space-between', flexDirection: 'column'},
-      inputStyle: { themeStyle: 'inputNorm'}
+      fieldStyle: { themeStyle: 'fieldMain'},
+      inputStyle: { themeStyle: 'inputMain'}
     }
   ];
 
   const buttons = [
-    { text: 'Submit', type: 'submit', cb: null, style: 'squareButton' },
-    { text: 'Cancel', type: 'cancel', cb: null, style: 'squareButton' }
+    { text: 'Submit', type: 'submit', cb: null, style: {width: '40px', height: '100px'} },
+    { text: 'Cancel', type: 'cancel', cb: null, style: {width: '40px', height: '100px'} }
   ];
 
   const form = {
     data: { name: 'signinForm', submit: 'signup' },
-    style: 'authForm'
+    style: { themeStyle: 'authForm' }
   }
 
-  
+  function onSubmit() {
 
-  function userSignin() {
-    debugger
   }
+
 
   return (
     <Div width="20rem" height="20rem" themeStyle="colorBg" fontSize={[1]}>
-      <H1>Hello World</H1>
+    <Form
+      onSubmit={onSubmit}
+      form={form}
+      inputs={inputs}
+      validate={signinValidation}
+      buttons={buttons}
+    />
     </Div>
   )
 }
