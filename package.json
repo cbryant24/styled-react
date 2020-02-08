@@ -1,6 +1,6 @@
 {
   "name": "@cbryant24/styled-react",
-  "version": "0.0.5",
+  "version": "0.0.10",
   "description": "Styles can be applied to components by writing css styles directly as props",
   "main": "dist/index.js",
   "keywords": [
@@ -20,23 +20,27 @@
     "test:watch": "npm run test -- --watch",
     "build": "webpack --config-name styled-react-npm --mode production"
   },
+  "dependencies": {
+    "@styled-system/css": "^5.0.23",
+    "@styled-system/theme-get": "^5.1.1",
+    "@types/styled-system": "^5.0.1",
+    "clean-element": "^1.0.0",
+    "styled-components": "^5.0.0",
+    "styled-system": "^5.0.12"
+  },
   "peerDependencies": {
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "styled-components": "^5.0.0",
-    "styled-system": "^5.0.12",
     "lodash": "^4.17.10",
-    "clean-element": "^1.0.0",
-    "@styled-system/css": "^5.0.23",
-    "@styled-system/theme-get": "^5.1.1",
-    "@types/styled-system": "^5.0.1"
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.3",
     "@babel/core": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
     "@babel/preset-react": "^7.8.3",
-    "@cbryant24/styled-react-form": "0.0.2",
+    "@cbryant24/styled-react-form": "latest",
     "@styled-system/css": "^5.0.23",
     "@styled-system/theme-get": "^5.1.1",
     "@types/styled-system": "^5.0.1",
@@ -60,6 +64,8 @@
     "styled-system": "^5.0.12",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.10.1"
+    "webpack-dev-server": "^3.10.1",
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2"
   }
 }

@@ -1,6 +1,6 @@
 import { get, includes, omit, range } from 'lodash';
 import * as formInputs from './forms_inputs';
-
+import { keyframes } from '@cbryant24/styled-react-form';
 
 const red = '#e42d42';
 const white = '#ffffff';
@@ -108,8 +108,29 @@ export const buttonPadding = [0, '.5em', '1em']
 // }
 
 
+const flashingEyes = () => {
+  return keyframes`
+  from { opacity: 0; }
+  to { opacity: 1 }
+  `;
+}
+
+const linkStyle = {
+  borderBottom: 'none',
+  color: 'red',
+  fontSize: [2],
+  pseudo: true,
+  hover: { backgroundColor: 'yellow'},
+  width: [3],
+  animation: { 
+    continuous: flashingEyes,
+    duration_continuous: 3 
+  }
+}
+
 const theme = {
   ...formInputs,
+  linkStyle,
   breakpoints,
   mediaQueries,
   font,

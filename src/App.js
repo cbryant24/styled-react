@@ -1,80 +1,13 @@
 import React from 'react';
-import { Div, Field } from '@cbryant24/styled-react';
-import Form from '@cbryant24/styled-react-form';
+import { Link } from 'react-router-dom';
+import { Div, createLink } from '@cbryant24/styled-react';
 
 const App = () => {
-  const signinValidation = {
-    title: 'signup',
-    description: 'User Signin',
-    inputs: [
-      {
-        name: 'email',
-        blur: 'emptyOrEmail',
-        change: 'emptyOrSafeString'
-      },
-      {
-        name: 'password',
-        blur: 'emptyOrSafeString',
-        change: 'emptyOrSafeString'
-      }
-    ],
-    inputErrorMessages: {
-        email: 'Email should be in email format',
-        password: 'Password should only contain letters, numbers, and ! @ # $ % characters'
-    },
-    submit: [
-      {
-        name: 'email',
-        validate: 'safeString'
-      },
-      {
-        name: 'password',
-        validate: 'safeString',
-      },
-    ],
-    submitErrorMessages: {
-      email: 'There was an error in the email field',
-      password: 'There was an error in the password field'
-    }
-  }
-
-  const inputs = [
-    {
-      data: { type: 'email', name: 'email', label: 'email', placeholder: 'enter email', required: true },
-      fieldStyle: { themeStyle: 'fieldMain'},
-      inputStyle: { themeStyle: 'inputMain'}
-    },
-    {
-      data: { type: 'password', name: 'password', label: 'password', placeholder: 'enter password', required: true },
-      fieldStyle: { themeStyle: 'fieldMain'},
-      inputStyle: { themeStyle: 'inputMain'}
-    }
-  ];
-
-  const buttons = [
-    { text: 'Submit', type: 'submit', cb: null, style: {width: '40px', height: '100px'} },
-    { text: 'Cancel', type: 'cancel', cb: null, style: {width: '40px', height: '100px'} }
-  ];
-
-  const form = {
-    data: { name: 'signinForm', submit: 'signup' },
-    style: { themeStyle: 'authForm' }
-  }
-
-  function onSubmit() {
-
-  }
-
+  const StyledLink = createLink(Link);
 
   return (
-    <Div width="20rem" height="20rem" themeStyle="colorBg" fontSize={[1]}>
-    <Form
-      onSubmit={onSubmit}
-      form={form}
-      inputs={inputs}
-      validate={signinValidation}
-      buttons={buttons}
-    />
+    <Div themeStyle={'linkStyle'} width="20rem" height="20rem" backgroundColor="black">
+      <StyledLink fontSize={[2]} color="white" to="/home" >Home</StyledLink>
     </Div>
   )
 }

@@ -98,6 +98,33 @@ A default global styling with the most common global styling is also exported as
 
 ## Elements
 
+### Links
+
+An `a` tag is currently exported for general linking.
+
+Currently Styled-React is setup to use `react-router`. To create a links provide the exported `react-router-dom` link the the `createLink` function exported from the Styled-React library.
+The `createLink` function returns a `react-router-dom Link` that can now be styled as normal with theming included
+
+```javascript
+import { Link } from 'react-router-dom';
+import { Div, createLink } from '@cbryant24/styled-react';
+
+const App = () => {
+  const StyledLink = createLink(Link);
+
+  return (
+    <Div width="20rem" height="20rem" backgroundColor="black" fontSize={[1]}>
+      <StyledLink
+        themeStyle={'linkStyle'}
+        fontSize={[2]}
+        color="white"
+        to="/home"
+      >Home</StyledLink>
+    </Div>
+  )
+}
+```
+
 ### Field
 
 The field component creates a group of elements containing label, input, and errors. The element takes the following props for the `data` props to set the label, placeholder, name attribute, and any data for the input to prefill or autoselect.
