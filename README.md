@@ -64,6 +64,8 @@ See default theming option for explanations on theme properties and reference [h
 
 For detailed guide and philosophy behind theming see [styled-system theming guide](https://styled-system.com/guides/theming)
 
+<small>*animations currently are not able be included in themeing</small>
+
 ## Global Style
 
 Global styling can be done by importing the `createGlobalStyle` function and using tagged template literals to set global css values.
@@ -102,8 +104,7 @@ A default global styling with the most common global styling is also exported as
 
 An `a` tag is currently exported for general linking.
 
-Currently Styled-React is setup to use `react-router`. To create a links provide the exported `react-router-dom` link the the `createLink` function exported from the Styled-React library.
-The `createLink` function returns a `react-router-dom Link` that can now be styled as normal with theming included
+Currently Styled-React is setup to use `react-router`. To create a link provide the exported `react-router-dom` `Link` to the `createLink` function exported from the Styled-React library. The `createLink` function returns a `react-router-dom Link` that can now be styled as normal with themeing included
 
 ```javascript
 import { Link } from 'react-router-dom';
@@ -335,34 +336,28 @@ To define the animations provide an object to the `animation` prop with the appr
 
 ### Custom Animations
 
-A function `keyframes` is made available to create custom animations. To create a custom animation pass the created keyframes animation to Animated component in the appropriate places where keyframes are expected.
+To create a custom pass an object representing a keyframes definition. The animation property uses css actual names so properites with a hyphen need to follow the same style in this object.
+
+
 
 ```javascript
-  import { keyframes } from '@cbryant24/styled-react';
-
-  const slideInTop = keyframes`
-    0% {
-      transform: translateY(-1000px);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  `;
+  const customAnimation = {
+      in: {
+        from: { opacity: 0 },
+        to: { opacity: 1 }
+      },
+      delay_between: 4,
+      out: {
+        from: { 'background-color': 'red' },
+        to: { 'background-color': 'yellow' }
+      },
+      // continuous: flashingEyesHere,
+      duration_out: 3,
+      duration_in: 3
+  };
 
   <Box
-    animation={{
-      delay_in: 5,
-      in: slideInTop,
-      duration_in: 1,
-      continuous: RotateAnimations.RotateInCenter,
-      duration_continuous: 1,
-      out: FadeAnimations.FadeOutTop,
-      duration_out: 1,
-      delay_between: 5,
-      animation_fill_mode: 'forwards'
-    }}
+    animation={animation}
   >
     I'm animating
   </Box>
