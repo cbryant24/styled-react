@@ -1,6 +1,6 @@
 {
   "name": "@cbryant24/styled-react",
-  "version": "0.0.11",
+  "version": "0.0.15",
   "description": "CSS Styles can be applied to components by writing css styles as props or themeing",
   "main": "dist/index.js",
   "keywords": [
@@ -18,7 +18,8 @@
     "start": "webpack-dev-server --mode development --config-name styled-react-dev",
     "test": "jest --config ./jest.config.json",
     "test:watch": "npm run test -- --watch",
-    "build": "webpack --config-name styled-react-npm --mode production"
+    "build": "webpack --config-name styled-react-npm --mode production",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "@styled-system/css": "^5.0.23",

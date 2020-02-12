@@ -1,30 +1,32 @@
 import { get, includes, omit, range } from 'lodash';
 import * as formInputs from './forms_inputs';
+import * as buttons from './buttons';
+import * as marginSpace from './space';
 import { keyframes } from './index';
 
 const red = '#e42d42';
 const white = '#ffffff';
 const black = '#000000';
 const primary = red;
-const secondary = '#4F4FEB'
+const secondary = '#4F4FEB';
 export const colors = {
   red,
   black,
   white,
   primary,
   secondary
-}
+};
 
 const createMediaQuery = n => `@media screen and (min-width:${n}px)`;
 
 const addAliases = (arr, aliases) =>
   aliases.forEach((key, i) =>
-  //arr in this case can be either an arr or object since an array is an object with
-  //key value pairs that are simply numbers e.g [1: arrItem1, 2: arrItem2 etc] 
+    //arr in this case can be either an arr or object since an array is an object with
+    //key value pairs that are simply numbers e.g [1: arrItem1, 2: arrItem2 etc]
     Object.defineProperty(arr, key, {
       enumerable: false,
       get() {
-        return this[i]
+        return this[i];
       }
     })
   );
@@ -47,18 +49,18 @@ const mono = 'SFMono-Regular,"Roboto Mono",Menlo,monospace';
 
 const fontSizes = [0, '1.2em', '1.6em', '1.8em', '2em'];
 
-//margin/padding[all, left, right top bottom] 
+//margin/padding[all, left, right top bottom]
 //grid [grid-gap, grid-column-gap, grid-row-gap]
 const space = [0, '.5em', '1em', '1.5em', '2em'];
 
 //width, height, min-width, max-width, min-height, max-height
 const sizes = ['0%', '100%', '50%', '33%', '25%', '20%', '10%'];
 
-const lineHeights = { "condensedUltra": 1, "condensed": 1.25, "default": 1.5 }
+const lineHeights = { condensedUltra: 1, condensed: 1.25, default: 1.5 };
 
 //fontSizesModule is used to size for repsonsiveness using the css design philospohy
 //of modular design with font-size rem for global design and font-size em for local design
-//see https://css-tricks.com/rem-global-em-local/ for explanation `fontSizesModule` is a 
+//see https://css-tricks.com/rem-global-em-local/ for explanation `fontSizesModule` is a
 //custom system-styled property that can be used with the scale for parent module font-size design
 const fontSizesModule = [0, '.75rem', '1rem', '1.25rem', '1.5rem'];
 
@@ -98,11 +100,12 @@ const linkStyle = {
   color: 'white',
   width: [1, 2],
   hover: { color: 'red' }
-}
-
+};
 
 const theme = {
   ...formInputs,
+  ...buttons,
+  ...marginSpace,
   breakpoints,
   mediaQueries,
   font,
@@ -117,6 +120,6 @@ const theme = {
   colors,
   lineHeights,
   linkStyle
-}
+};
 
 export default theme;

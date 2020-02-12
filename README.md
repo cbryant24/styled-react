@@ -8,23 +8,23 @@ Library for styling React components using `css-in-js` and theming.
 
 The following html elements are exported for use in component rendering and styling
 
-* `Box - Default Div type which can be set to any html type` <small>[see isA attribute](#Element-Types)</small>
-* `Div`
-* `FlexDiv - Div with the flex type set`
-* `GridDiv - Div with the grid type set`
-* `Form`
-* `FlexForm - Form with the flex type set`
-* `GridForm - Form with the grid type set`
-* `Button`
-* `FlexButton - Button with the flex type set`
-* `GridButton - Button with the grid type set`
-* `Li`
-* `FlexLi - Li with the flex type set`
-* `GridLi - Li with the grid type set`
-* `Ul`
-* `FlexUl - Ul with the flex type set`
-* `GridUl - Ul with the grid type set`
-* `Field - See Field instructions` <small>[here](#Field)</small>
+- `Box - Default Div type which can be set to any html type` <small>[see isA attribute](#Element-Types)</small>
+- `Div`
+- `FlexDiv - Div with the flex type set`
+- `GridDiv - Div with the grid type set`
+- `Form`
+- `FlexForm - Form with the flex type set`
+- `GridForm - Form with the grid type set`
+- `Button`
+- `FlexButton - Button with the flex type set`
+- `GridButton - Button with the grid type set`
+- `Li`
+- `FlexLi - Li with the flex type set`
+- `GridLi - Li with the grid type set`
+- `Ul`
+- `FlexUl - Ul with the flex type set`
+- `GridUl - Ul with the grid type set`
+- `Field - See Field instructions` <small>[here](#Field)</small>
 
 Styles can be applied to components by writing css styles directly as props
 
@@ -33,8 +33,10 @@ import { Div } from '@cbryant24/styled-react';
 
 function App() {
   return (
-    <Div display="block" color="red">Im a Div</Div>
-  )
+    <Div display="block" color="red">
+      Im a Div
+    </Div>
+  );
 }
 ```
 
@@ -64,7 +66,7 @@ See default theming option for explanations on theme properties and reference [h
 
 For detailed guide and philosophy behind theming see [styled-system theming guide](https://styled-system.com/guides/theming)
 
-<small>*animations currently are not able be included in themeing</small>
+<small>\*animations currently are not able be included in themeing</small>
 
 ## Global Style
 
@@ -84,13 +86,12 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 function App() {
-
   return (
     <Fragment>
       <GlobalStyle />
       <Div>Hello World</Div>
     </Fragment>
-  )
+  );
 }
 ```
 
@@ -120,10 +121,12 @@ const App = () => {
         fontSize={[2]}
         color="white"
         to="/home"
-      >Home</StyledLink>
+      >
+        Home
+      </StyledLink>
     </Div>
-  )
-}
+  );
+};
 ```
 
 ### Field
@@ -131,13 +134,12 @@ const App = () => {
 The field component creates a group of elements containing label, input, and errors. The element takes the following props for the `data` props to set the label, placeholder, name attribute, and any data for the input to prefill or autoselect.
 
 | Prop        | Type   | Description                                                                |
-|-------------|--------|----------------------------------------------------------------------------|
+| ----------- | ------ | -------------------------------------------------------------------------- |
 | name        | string | used for `name` attribute on `input` and `for` attribute on label          |
-| type        | string | determine which input type.  * email * text * password * textarea * select |
+| type        | string | determine which input type. _ email _ text _ password _ textarea \* select |
 | placeholder | string | text to be used in the input for placeholder text                          |
 | label       | string | text to be used for the label text value                                   |
 | inputData   | varies | see list of options available for `inputData`                              |
-
 
 #### inputData
 
@@ -146,7 +148,7 @@ The field component creates a group of elements containing label, input, and err
 The select input type inputData takes the properties listed below
 
 | InputType | Select | Description                                                  |
-|-----------|--------|--------------------------------------------------------------|
+| --------- | ------ | ------------------------------------------------------------ |
 | options   | array  | array of objects with the property `id`                      |
 | value     | string | used to set value field with the provided option object `id` |
 | display   | string | used to display the text in the provided option field        |
@@ -163,33 +165,31 @@ If using a `theme` with the `ThemeProvider` wrapper the prop `fieldStyle` and `i
 import { Field, Form } from '@cbryant24/styled-react';
 
 const App = () => {
-
   const fieldStyle = {
-    width: '75%',
-    maxHeight: '11rem',
-    justifyContent: 'space-between',
-    flexDirection: 'column'
-  },
-  inputStyle = {
-    background: 'white', color: 'black', borderRadius: '1em', minHeight: '2.5em'
-  }
+      width: '75%',
+      maxHeight: '11rem',
+      justifyContent: 'space-between',
+      flexDirection: 'column'
+    },
+    inputStyle = {
+      background: 'white',
+      color: 'black',
+      borderRadius: '1em',
+      minHeight: '2.5em'
+    };
 
-  
   return (
-    <Form
-      width="30vw"
-      height="30vh"
-      backgroundColor="red"
-      color="black"
-    >
+    <Form width="30vw" height="30vh" backgroundColor="red" color="black">
       <Field
-        data={{ name: "field-test", type: 'select', inputData: {
-          value: "id",
-          display: "name",
-          options:
-            [
-              {name: "Dev", id: 2 },
-              {name: "Mac", id: "3"},
+        data={{
+          name: 'field-test',
+          type: 'select',
+          inputData: {
+            value: 'id',
+            display: 'name',
+            options: [
+              { name: 'Dev', id: 2 },
+              { name: 'Mac', id: '3' }
             ]
           }
         }}
@@ -197,8 +197,8 @@ const App = () => {
         inputStyle={inputStyle}
       />
     </Form>
-  )
-}
+  );
+};
 ```
 
 The input can't be styled but takes on the styling of the parent field styled with `inputStyle`
@@ -236,15 +236,11 @@ Adding props to multiple elements can be done by passing an array of styled-syst
 import { Input } from './Input';
 
 ```javascript
-export default Form = (props) => {
-  const InputPassword = addProps([Input, Input], { type: 'password'});
+export default Form = props => {
+  const InputPassword = addProps([Input, Input], { type: 'password' });
 
-  return (
-    <div>
-      {InputPassword}
-    </div>
-  )
-}
+  return <div>{InputPassword}</div>;
+};
 ```
 
 Adding props to multiple elements with varying props can be done by passing an array of styled-system Components and an array of props. Note that the props applied to each is done in a one to one application
@@ -252,115 +248,108 @@ Adding props to multiple elements with varying props can be done by passing an a
 ```javascript
 import { Input } from './Input';
 
-export default Form = (props) => {
-  const Inputs = addProps([Input, Input], [{ type: 'text'}, { type: 'password'}]);
+export default Form = props => {
+  const Inputs = addProps(
+    [Input, Input],
+    [{ type: 'text' }, { type: 'password' }]
+  );
 
-  return (
-    <div>
-      {Inputs}
-    </div>
-  )
-}
+  return <div>{Inputs}</div>;
+};
 ```
 
 ## Input
 
-| Props              | CSS Style                | Value      |
-|--------------------|:------------------------:|:-----------|
-| placeHolderColor     ::placeholder -> {color}   [rgba, hex]|
-| focusOutline         :focus { outline }         string     |
-| focusBorderColor     :focus { boder }           string     |
-| focusBoxShadow       :focus { box-shadow }      string     |
+| Props                                                 | CSS Style | Value |
+| ----------------------------------------------------- | :-------: | :---- |
+| placeHolderColor ::placeholder -> {color} [rgba, hex] |
+| focusOutline :focus { outline } string                |
+| focusBorderColor :focus { boder } string              |
+| focusBoxShadow :focus { box-shadow } string           |
 
 ## Animations/Transitions
 
 To define the animations provide an object to the `animation` prop with the appropriate properties
 
-* `in`: This property receives an animation keyframe that will be used to animate in the component.
-  * If providing an an animation a `duration_in` property and value must be provided
-* `delay_in`: This property receives and integer and will set the time that the component will take to start being animated. While this time isn't reached, the component will be mounted but will display nothing. If this property is not setted there won't be any delay in for the component to start animating.
-* `duration_in`: This property receives and integer greater than 0 and will set the duration in seconds for the in animation.
-* `continuous`: This property receives an animation keyframe that will be used to animate between in and out (if proceed).
-* `duration_continuous`: This property receives an integer greater than 0 and will set the duration in seconds for the continuous animation.
-* `out`:  This property receives an animation keyframe that will be used to animate out the component.
-* `duration_out`: This property receives and integer greater than 0 and will set the duration in seconds for the out animation.
-* `delay_between`: This property receives and integer geater or equals to 0 and will set the time that will wait between the in and out animations.
-* `iteration`: This property receives and integer greater than 0 or the literal 'infinite' and will set the amount of iterations the animation should be doing until it goes out (if it should)
-* `animation_fill_mode`: property accepts `none | forwards | backwards | both | initial | inherit;` if none is provided the default value `none` will be used.
-* `animation_timing_function`: property accepts `linear | ease | ease-in | ease-out | ease-in-out | step-start | step-end | steps(int, start|end) | cubic-bezier(n,n,n,n) | initial | inherit` if none is provided the default value of `ease` will be used.
-* `animation_direction`: property accepts `normal | reverse | alternate | alternate-reverse | initial | inherit ` if none is provided the default value of `normal` will be used.
+- `in`: This property receives an animation keyframe that will be used to animate in the component.
+  - If providing an an animation a `duration_in` property and value must be provided
+- `delay_in`: This property receives and integer and will set the time that the component will take to start being animated. While this time isn't reached, the component will be mounted but will display nothing. If this property is not setted there won't be any delay in for the component to start animating.
+- `duration_in`: This property receives and integer greater than 0 and will set the duration in seconds for the in animation.
+- `continuous`: This property receives an animation keyframe that will be used to animate between in and out (if proceed).
+- `duration_continuous`: This property receives an integer greater than 0 and will set the duration in seconds for the continuous animation.
+- `out`: This property receives an animation keyframe that will be used to animate out the component.
+- `duration_out`: This property receives and integer greater than 0 and will set the duration in seconds for the out animation.
+- `delay_between`: This property receives and integer geater or equals to 0 and will set the time that will wait between the in and out animations.
+- `iteration`: This property receives and integer greater than 0 or the literal 'infinite' and will set the amount of iterations the animation should be doing until it goes out (if it should)
+- `animation_fill_mode`: property accepts `none | forwards | backwards | both | initial | inherit;` if none is provided the default value `none` will be used.
+- `animation_timing_function`: property accepts `linear | ease | ease-in | ease-out | ease-in-out | step-start | step-end | steps(int, start|end) | cubic-bezier(n,n,n,n) | initial | inherit` if none is provided the default value of `ease` will be used.
+- `animation_direction`: property accepts `normal | reverse | alternate | alternate-reverse | initial | inherit` if none is provided the default value of `normal` will be used.
 
 ```javascript
-  <Box
-    animation={{
-      delay_in: 5,
-      in: FadeAnimations.FadeInBottom,
-      duration_in: 2,
-      out: FadeAnimations.FadeOutTop,
-      duration_out: 1,
-      delay_between: 5
-    }}
-  >
-    I'm animating
-  </Box>
+<Box
+  animation={{
+    delay_in: 5,
+    in: FadeAnimations.FadeInBottom,
+    duration_in: 2,
+    out: FadeAnimations.FadeOutTop,
+    duration_out: 1,
+    delay_between: 5
+  }}
+>
+  I'm animating
+</Box>
 ```
 
 ```javascript
-  <Box
-    animation={{
-      continuous: RotateAnimations.RotateCenter,
-      duration_continuous: 3,
-    }}
-  >
-    I'm animating
-  </Box>
+<Box
+  animation={{
+    continuous: RotateAnimations.RotateCenter,
+    duration_continuous: 3
+  }}
+>
+  I'm animating
+</Box>
 ```
 
 ```javascript
-  <Box
-    animation={{
-      delay_in: 5,
-      in: FadeAnimations.FadeInBottom,
-      duration_in: 1,
-      continuous: RotateAnimations.RotateInCenter,
-      duration_continuous: 1,
-      out: FadeAnimations.FadeOutTop,
-      duration_out: 1,
-      delay_between: 5,
-      animation_fill_mode: 'forwards'
-    }}
-  >
-    I'm animating
-  </Box>
+<Box
+  animation={{
+    delay_in: 5,
+    in: FadeAnimations.FadeInBottom,
+    duration_in: 1,
+    continuous: RotateAnimations.RotateInCenter,
+    duration_continuous: 1,
+    out: FadeAnimations.FadeOutTop,
+    duration_out: 1,
+    delay_between: 5,
+    animation_fill_mode: 'forwards'
+  }}
+>
+  I'm animating
+</Box>
 ```
 
 ### Custom Animations
 
 To create a custom pass an object representing a keyframes definition. The animation property uses css actual names so properites with a hyphen need to follow the same style in this object.
 
-
-
 ```javascript
-  const customAnimation = {
-      in: {
-        from: { opacity: 0 },
-        to: { opacity: 1 }
-      },
-      delay_between: 4,
-      out: {
-        from: { 'background-color': 'red' },
-        to: { 'background-color': 'yellow' }
-      },
-      // continuous: flashingEyesHere,
-      duration_out: 3,
-      duration_in: 3
-  };
+const customAnimation = {
+  in: {
+    from: { opacity: 0 },
+    to: { opacity: 1 }
+  },
+  delay_between: 4,
+  out: {
+    from: { 'background-color': 'red' },
+    to: { 'background-color': 'yellow' }
+  },
+  // continuous: flashingEyesHere,
+  duration_out: 3,
+  duration_in: 3
+};
 
-  <Box
-    animation={animation}
-  >
-    I'm animating
-  </Box>
+<Box animation={animation}>I'm animating</Box>;
 ```
 
 ## Psuedo Classes/Elements
@@ -368,12 +357,9 @@ To create a custom pass an object representing a keyframes definition. The anima
 The pseudo classes `active, focus, hover, lang, link, visited` and pseudo elements `after, before, first-letter, first-line, selection` can be used to further style elments. Include the keyword `pseudo` and pass an object using the appropriate pseudo name to style.
 
 ```javascript
-  <Box
-    pseudo
-    hover={{ fontSize: [1, 2], color: 'blue.1'}}
-  >
-    I am a pseudo element
-  </Box>
+<Box pseudo hover={{ fontSize: [1, 2], color: 'blue.1' }}>
+  I am a pseudo element
+</Box>
 ```
 
 ## Transitions
@@ -397,11 +383,9 @@ To use a styled-react-modal import both the `ModalProvider, Modal` components. S
 ```javascript
 import { ModalProvider, Modal } from 'styled-react';
 
-
 <ModalProvider BackgroundComponent={ModalBackground}>
-    <App />
-</ModalProvider>
-
+  <App />
+</ModalProvider>;
 
 function ModalDemo(props) {
   const [isOpen, setIsOpen] = useState(false);
@@ -409,47 +393,47 @@ function ModalDemo(props) {
   const toggleModal = e => setIsOpen(!isOpen);
 
   return (
-      <Modal
-        isOpen={isOpen}
-        onBackgroundClick={toggleModal}
-        onEscapeKeydown={toggleModal}
-      >
-        <Box>
-          <Box>I am a modal!</Box>
-          <Box>I am another box in the modal</Box>
-          <button onClick={toggleModal}>Close Me</button>
-        </Box>
-      </Modal>
-  )
+    <Modal
+      isOpen={isOpen}
+      onBackgroundClick={toggleModal}
+      onEscapeKeydown={toggleModal}
+    >
+      <Box>
+        <Box>I am a modal!</Box>
+        <Box>I am another box in the modal</Box>
+        <button onClick={toggleModal}>Close Me</button>
+      </Box>
+    </Modal>
+  );
 }
 ```
 
-| Property          | Type     | Description                                                                                                                                     |
-|-------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------|
-| isOpen            | Boolean  | A boolean that indicates whether the modal is to be open or closed.                                                                             |
-| onBackgroundClick | Function |  A function that is called when the modal background is clicked.                                                                                |
-| onEscapeKeydown   | Function | A function that is called when the escape key is pressed while the modal is open.                                                               |
+| Property          | Type     | Description                                                                                                                                    |
+| ----------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| isOpen            | Boolean  | A boolean that indicates whether the modal is to be open or closed.                                                                            |
+| onBackgroundClick | Function | A function that is called when the modal background is clicked.                                                                                |
+| onEscapeKeydown   | Function | A function that is called when the escape key is pressed while the modal is open.                                                              |
 | backgroundProps   | Object   | A props object that adds props to the backgroundComponent when included.                                                                       |
-| allowScroll       | Boolean  | When true, scrolling in the document body is not disabled when the modal is open.                                                               |
-| beforeOpen        | Function | A function that is called before the modal opens. If this function returns a promise, then the modal is opened after the promise is resolved.   |
-| afterOpen         | Function | A function that is called after the modal opens.                                                                                                |
-| beforeClose       | Function | A function that is called before the modal closes. If this function returns a promise,  then the modal is closed after the promise is resolved. |
-| afterClose        | Function |  A function that is called after the modal closes.                                                                                              |
+| allowScroll       | Boolean  | When true, scrolling in the document body is not disabled when the modal is open.                                                              |
+| beforeOpen        | Function | A function that is called before the modal opens. If this function returns a promise, then the modal is opened after the promise is resolved.  |
+| afterOpen         | Function | A function that is called after the modal opens.                                                                                               |
+| beforeClose       | Function | A function that is called before the modal closes. If this function returns a promise, then the modal is closed after the promise is resolved. |
+| afterClose        | Function | A function that is called after the modal closes.                                                                                              |
 
 The `BackgroundComponent` Takes a component that will be rendered as the background for this level modal if one is not provided the default `BackgroundComponent` will be used
 
 ```javascript
 <Box
-  display='flex'
-  position='fixed'
+  display="flex"
+  position="fixed"
   top="0"
   left="0"
-  width='100vw'
-  height='100vh'
+  width="100vw"
+  height="100vh"
   zIndex="30"
-  backgroundColor='rgba(0, 0, 0, 0.5)'
-  alignItems='center'
-  justifyContent='center'
+  backgroundColor="rgba(0, 0, 0, 0.5)"
+  alignItems="center"
+  justifyContent="center"
 />
 ```
 
@@ -458,16 +442,12 @@ The `BackgroundComponent` Takes a component that will be rendered as the backgro
 To change the `Box` component to different element types i.e. `<span></span> <p></p>` use the prop `isA` and select the element type needed.
 
 ```javascript
-<Box
-  isA="p"
-  fontSize={[1,2]}
-  zIndex='10'
->
+<Box isA="p" fontSize={[1, 2]} zIndex="10">
   I am now a styled paragraph element
 </Box>
 ```
 
-## Theme 
+## Theme
 
 To create a theme provide a `theme` object and prop for the `ThemeProvider`. See [here](https://github.com/cbryant24/styled-react/blob/master/lib/theme.js) for example/default theme
 
@@ -478,21 +458,21 @@ const colors = {
   black: '#000000',
   white: '#ffffff',
   red: '#FF0000'
-}
-const fontSizes = [0, '1.6em', '1.4em', '1.2em', '.9em', '.8em' ];
+};
+const fontSizes = [0, '1.6em', '1.4em', '1.2em', '.9em', '.8em'];
 
 const theme = {
   breakpoints,
   sizes,
   colors,
   fontSizes
-}
+};
 
-import {ThemeProvider} from 'styled-react';
+import { ThemeProvider } from 'styled-react';
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>
-    <App/>
+    <App />
   </ThemeProvider>,
   document.getElementById('root')
 );
@@ -550,10 +530,39 @@ const Buttons = (props) => {
 }
 ```
 
+or
+
+```javascript
+<Button
+  themeStyle={['buttonSmall', 'marginSmall']}
+  remove={['color', 'margin']}
+  color="yellow"
+  margin="2em"
+>
+  Click Me
+</Button>
+```
+
+### Remove Prop
+
+If passing a theme style and need to remove certain styles from the theme style use the `remove` and pass a `string` with the name of the camelCase css property or array or camelCase css properties of styles to remove
+
+```javascript
+<Button
+  themeStyle={['buttonSmall', 'marginSmall']}
+  remove="color"
+  color="yellow"
+>
+  Click Me
+</Button>
+```
+
+### Theme Names and Keys
+
 For styles defined in the theme and passed as a string or an array the following values can be used with your theme values
 
 | Property            | Theme Key      |
-|---------------------|----------------|
+| ------------------- | -------------- |
 | fontFamily          | fonts          |
 | fontSize            | fontSizes      |
 | fontWeight          | fontWeights    |
