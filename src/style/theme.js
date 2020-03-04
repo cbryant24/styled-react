@@ -1,8 +1,8 @@
-import { get, includes, omit, range } from 'lodash';
 import * as formInputs from './forms_inputs';
 import * as buttons from './buttons';
 import * as marginSpace from './space';
-import { keyframes } from './index';
+import * as modal from './modal';
+import * as carousel from './carousel';
 
 const red = '#e42d42';
 const white = '#ffffff';
@@ -106,6 +106,8 @@ const theme = {
   ...formInputs,
   ...buttons,
   ...marginSpace,
+  ...modal,
+  ...carousel,
   breakpoints,
   mediaQueries,
   font,

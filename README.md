@@ -25,6 +25,7 @@ The following html elements are exported for use in component rendering and styl
 - `FlexUl - Ul with the flex type set`
 - `GridUl - Ul with the grid type set`
 - `Field - See Field instructions` <small>[here](#Field)</small>
+- `StyledModal - see Modal instructions` <small>[here](#Modal)</small>
 
 Styles can be applied to components by writing css styles directly as props
 
@@ -344,7 +345,6 @@ const customAnimation = {
     from: { 'background-color': 'red' },
     to: { 'background-color': 'yellow' }
   },
-  // continuous: flashingEyesHere,
   duration_out: 3,
   duration_in: 3
 };
@@ -378,12 +378,27 @@ Transitions can be added for the following states `hover, focus, & active` you c
 
 ## Modal
 
-To use a styled-react-modal import both the `ModalProvider, Modal` components. Set the `<ModalProvider></ModalProvider>` at the level you want to render the modal. The modal takes a single parent element with no sibling elements. To pass sibling elements use the `Fragment` component to do so.
+To use a styled-react-modal import both the `ModalProvider, StyledModal` components. Set the `<ModalProvider></ModalProvider>` at the level you want to render the modal. The modal takes a single parent element with no sibling elements.
+
+To style the Modal Background pass to the prop `modalBackgroundStyle` an object of camelCase css properties or if using themeimg an object with the property `themeStyle` with a string or array of strings corresponding to the theme name
+
+The props `modalBackgroundStyle, isOpen, onBackgroundClick, onEscapeKeydown, allowScroll, beforeOpen, afterOpen, beforeClose, afterClose`
+
+`modalBackgroundStyle`: `object` of camelCase css properties if using theming use property `themeStyle` with corresponding theme value
+`isOpen`: A `boolean` that indicates whether the modal is to be open or closed
+`onBackgroundClick`: A `function` that is invoked when the modal background is clicked
+`onEscapeKeydown`: A `function` that is invoked when the escape key is pressed while the modal is open
+`allowScroll`: A `boolean` when `true`, scrolling in the document body is not disabled when the modal is open
+`beforeOpen`: A `function` that is invoked before the modal opens. If this function returns a promise, then the modal is opened after the promise is resolved
+`afterOpen`: A `function` that is invoked after the modal opens
+`beforeClose`: A `function` that is invoked before the modal closes
+`afterClose`: A `function` that is invoked after the modal closes
+`
 
 ```javascript
 import { ModalProvider, Modal } from 'styled-react';
 
-<ModalProvider BackgroundComponent={ModalBackground}>
+<ModalProvider>
   <App />
 </ModalProvider>;
 
@@ -392,11 +407,16 @@ function ModalDemo(props) {
 
   const toggleModal = e => setIsOpen(!isOpen);
 
+  function beforeOpen() {
+    alert('Im about to open');
+  }
+
   return (
     <Modal
       isOpen={isOpen}
       onBackgroundClick={toggleModal}
       onEscapeKeydown={toggleModal}
+      beforeOpen={beforeOpen}
     >
       <Box>
         <Box>I am a modal!</Box>
@@ -406,35 +426,6 @@ function ModalDemo(props) {
     </Modal>
   );
 }
-```
-
-| Property          | Type     | Description                                                                                                                                    |
-| ----------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| isOpen            | Boolean  | A boolean that indicates whether the modal is to be open or closed.                                                                            |
-| onBackgroundClick | Function | A function that is called when the modal background is clicked.                                                                                |
-| onEscapeKeydown   | Function | A function that is called when the escape key is pressed while the modal is open.                                                              |
-| backgroundProps   | Object   | A props object that adds props to the backgroundComponent when included.                                                                       |
-| allowScroll       | Boolean  | When true, scrolling in the document body is not disabled when the modal is open.                                                              |
-| beforeOpen        | Function | A function that is called before the modal opens. If this function returns a promise, then the modal is opened after the promise is resolved.  |
-| afterOpen         | Function | A function that is called after the modal opens.                                                                                               |
-| beforeClose       | Function | A function that is called before the modal closes. If this function returns a promise, then the modal is closed after the promise is resolved. |
-| afterClose        | Function | A function that is called after the modal closes.                                                                                              |
-
-The `BackgroundComponent` Takes a component that will be rendered as the background for this level modal if one is not provided the default `BackgroundComponent` will be used
-
-```javascript
-<Box
-  display="flex"
-  position="fixed"
-  top="0"
-  left="0"
-  width="100vw"
-  height="100vh"
-  zIndex="30"
-  backgroundColor="rgba(0, 0, 0, 0.5)"
-  alignItems="center"
-  justifyContent="center"
-/>
 ```
 
 ## Element Types
