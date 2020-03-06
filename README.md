@@ -352,6 +352,8 @@ const customAnimation = {
 <Box animation={animation}>I'm animating</Box>;
 ```
 
+To animatate multiple properties each property needs to be defined separatly seperately
+
 ## Psuedo Classes/Elements
 
 The pseudo classes `active, focus, hover, lang, link, visited` and pseudo elements `after, before, first-letter, first-line, selection` can be used to further style elments. Include the keyword `pseudo` and pass an object using the appropriate pseudo name to style.

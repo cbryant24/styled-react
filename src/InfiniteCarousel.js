@@ -62,55 +62,254 @@ const InfiniteCarousel = ({
         ? activeSlideIndex + upperLowerLimit
         : activeSlideIndex + upperLowerLimit + 1;
     const carouselPositions = {};
-    while (lowerLimit < upperLimit) {
-      let carouselItemTransform = {
-        animation: {
-          in: {
-            from: { transform: `translateX(${(i - 1) * bp}px)` },
-            to: { transform: `translateX(${i * bp}px)` }
-          },
-          duration_in: 0.5,
-          animation_fill_mode: 'forwards'
-        }
-      };
+    const fromBeginningCarouselToEnd =
+      prevActiveSlideIndex === carouselLengthEnd && activeSlideIndex === 0;
+    const fromEndCarouselToBeginning =
+      prevActiveSlideIndex === 0 && activeSlideIndex === carouselLengthEnd;
 
-      if (
-        i + 1 === visibleCarouselCount &&
-        prevActiveSlideIndex < activeSlideIndex
-      ) {
-        debugger;
-        carouselItemTransform = {
+    // debugger;
+    while (lowerLimit < upperLimit) {
+      const scale = lowerLimit === activeSlideIndex ? 1.2 : 1.0;
+      //FUNCTION TO SET CAROUSEL TRANSLATE POSITIONS
+      const carouselItemTransform = (() => {
+        const fromUpperToLower = {
+          transform: `translateX(${(i + 1) * bp}px) scale(1.0)`
+        };
+        const fromLowerToUpper = {
+          transform: `translateX(${(i - 1) * bp}px) scale(1.0)`
+        };
+        const inFromLeft = {
+          transform: `translateX(-${10 * bp}px) scale(1.0)`
+        };
+        const inFromRight = {
+          transform: `translateX(${10 * bp}px) scale(1.0)`
+        };
+
+        const carouselItemTranslate = {
           animation: {
             in: {
-              from: { transform: `translateX(${10 * bp}px)` },
-              to: { transform: `translateX(${i * bp}px)` }
+              from: fromLowerToUpper,
+              to: { transform: `translateX(${i * bp}px) scale(${scale})` }
             },
-            duration_in: 0.5,
+            duration_in: 2,
             animation_fill_mode: 'forwards'
           }
         };
-      }
-      if (lowerLimit === activeSlideIndex) {
-        // carouselPositions[lowerLimit] = {
-        //   transform: `translateX(${i * bp}px) scale(1.2)`
-        // };
-        // i++;
-        // lowerLimit++;
-        // continue;
-        // carouselItemTransform = {
-        //   transform: `translateX(${i * bp}px) scale(1.2)`
-        // };
-        carouselItemTransform = {
-          animation: {
-            in: {
-              from: { transform: `translateX(${(i - 1) * bp}px) scale(1)` },
-              to: { transform: `translateX(${i * bp}px) scale(1.2)` }
-            },
-            duration_in: 0.5,
-            animation_fill_mode: 'forwards'
+
+        if (visibleCarouselCount === children.length) {
+          if (prevActiveSlideIndex < activeSlideIndex) {
+            if (i === 0) {
+              const fromEndToFront = {
+                animation: {
+                  in: {
+                    '0%': {
+                      color: 'yellow',
+                      transform: `translateY(300px) `,
+                      height: '160px'
+                    },
+                    '25%': { opacity: 0.25 },
+                    '50%': { opacity: 0, transform: `translateY(500px)` },
+                    '55%': {
+                      transform: `translateY(400px)  rotate(90deg)`,
+                      height: '200px'
+                    },
+                    '100%': {
+                      opacity: 1,
+                      transform: `translateY(${i * bp}) rotate(180deg)`,
+                      'background-color': 'yellow'
+                    }
+                    // '0%': { opacity: 1 },
+                    // '1%': { height: '120px' },
+                    // '100%': { backgroundColor: 'blue', width: '1200px' }
+                  },
+                  duration_in: 10,
+                  animation_fill_mode: 'forwards'
+                }
+              };
+              return fromEndToFront;
+            }
           }
-        };
-      }
+
+          if (prevActiveSlideIndex > activeSlideIndex) {
+            // debugger
+            if (i + 1 === visibleCarouselCount) {
+              const fromFrontToEnd = {
+                animation: {
+                  in: {
+                    '0%': { transform: `translateX(0px)` },
+                    '50%': { transform: `translateX(-500px)` },
+                    '51%': { visibility: 'hidden' },
+                    '55%': {
+                      transform: `translateX(500px)`,
+                      visibility: 'hidden'
+                    },
+                    '100%': {
+                      transform: `translateX(${i * bp}px)`,
+                      visibility: 'visible'
+                    }
+                  },
+                  duration_in: 2,
+                  animation_fill_mode: 'forwards'
+                }
+              };
+              return fromFrontToEnd;
+            }
+          }
+
+          return { transform: `translateX(${i * bp}px) scale(${scale})` };
+        }
+        //THE CAROUSEL IS GOING FROM THE FIRST ITEM TO THE LAST ITEM REVERSE THE NORMAL TRANSITIONS
+        if (
+          prevActiveSlideIndex < activeSlideIndex &&
+          fromEndCarouselToBeginning
+        ) {
+          debugger;
+
+          //SETTING PREVIOUSLY VISIBLE CAROUSEL ITEM TO TRANISITON OUT OF CAROUSEL FROM LEFT
+          if (i + 1 === visibleCarouselCount) {
+            const outAnimationFromEnd = {
+              animation: {
+                in: {
+                  from: { transform: `translateX(${bp * i}px)` },
+                  to: { transform: `translateX(${bp * 10}px)` }
+                },
+                duration_in: 2,
+                animation_fill_mode: 'forwards'
+              }
+            };
+            // if ()
+            if (lowerLimit >= children.length) {
+              carouselPositions[
+                lowerLimit - children.length + 1
+              ] = outAnimationFromEnd;
+            } else {
+              if (children[lowerLimit + 1]) {
+                carouselPositions[lowerLimit + 1] = outAnimationFromEnd;
+              } else {
+                carouselPositions[
+                  lowerLimit - children.length + 1
+                ] = outAnimationFromEnd;
+              }
+            }
+          }
+
+          //SETTING PREVIOUSLY UNSEEN CAROUSEL ITEM TO TRANSITION INTO CAROUSEL FROM RIGHT
+          if (i === 0) {
+            carouselItemTranslate.animation.in.from = inFromLeft;
+            return carouselItemTranslate;
+          }
+
+          carouselItemTranslate.animation.in.from = fromLowerToUpper;
+          return carouselItemTranslate;
+        }
+
+        if (prevActiveSlideIndex < activeSlideIndex) {
+          //SETTING PREVIOUSLY VISIBLE CAROUSEL ITEM TO TRANISITON OUT OF CAROUSEL FROM LEFT
+          if (i === 0) {
+            const outAnimationFromStart = {
+              animation: {
+                in: {
+                  from: { transform: `translateX(0px)` },
+                  to: { transform: `translateX(-${bp * 10}px)` }
+                },
+                duration_in: 2,
+                animation_fill_mode: 'forwards'
+              }
+            };
+
+            if (children[lowerLimit - 1]) {
+              carouselPositions[lowerLimit - 1] = outAnimationFromStart;
+            } else {
+              carouselPositions[
+                children.length + lowerLimit - 1
+              ] = outAnimationFromStart;
+            }
+          }
+
+          //SETTING PREVIOUSLY UNSEEN CAROUSEL ITEM TO TRANSITION INTO CAROUSEL FROM RIGHT
+          if (i + 1 === visibleCarouselCount) {
+            carouselItemTranslate.animation.in.from = inFromRight;
+            return carouselItemTranslate;
+          }
+
+          carouselItemTranslate.animation.in.from = fromUpperToLower;
+          return carouselItemTranslate;
+        }
+
+        //THE CAROUSEL IS GOING FROM THE LAST ITEM TO THE FIRST ITEM REVERSE THE NORMAL TRANSITIONS
+        if (
+          prevActiveSlideIndex > activeSlideIndex &&
+          fromBeginningCarouselToEnd
+        ) {
+          //SETTING PREVIOUSLY VISIBLE CAROUSEL ITEM TO TRANISITON OUT OF CAROUSEL FROM LEFT
+          if (i === 0) {
+            const outAnimationFromStart = {
+              animation: {
+                in: {
+                  from: { transform: `translateX(0px)` },
+                  to: { transform: `translateX(-${bp * 10}px)` }
+                },
+                duration_in: 2,
+                animation_fill_mode: 'forwards'
+              }
+            };
+            // if ()
+            if (children[lowerLimit - 1]) {
+              carouselPositions[lowerLimit - 1] = outAnimationFromStart;
+            } else {
+              carouselPositions[
+                children.length + lowerLimit - 1
+              ] = outAnimationFromStart;
+            }
+          }
+
+          //SETTING PREVIOUSLY UNSEEN CAROUSEL ITEM TO TRANSITION INTO CAROUSEL FROM RIGHT
+          if (i + 1 === visibleCarouselCount) {
+            carouselItemTranslate.animation.in.from = inFromRight;
+            return carouselItemTranslate;
+          }
+
+          carouselItemTranslate.animation.in.from = fromUpperToLower;
+          return carouselItemTranslate;
+        }
+
+        if (prevActiveSlideIndex > activeSlideIndex) {
+          if (i + 1 === visibleCarouselCount) {
+            const outAnimationFromEnd = {
+              animation: {
+                in: {
+                  from: { transform: `translateX(${bp * i}px)` },
+                  to: { transform: `translateX(${bp * 10}px)` }
+                },
+                duration_in: 2,
+                animation_fill_mode: 'forwards'
+              }
+            };
+            // if ()
+            debugger;
+            if (lowerLimit >= children.length - 1) {
+              carouselPositions[
+                lowerLimit - children.length + 1
+              ] = outAnimationFromEnd;
+            } else {
+              carouselPositions[lowerLimit + 1] = outAnimationFromEnd;
+            }
+          }
+
+          if (i === 0) {
+            carouselItemTranslate.animation.in.from = inFromLeft;
+            return carouselItemTranslate;
+          }
+
+          if (i + 1 === visibleCarouselCount) {
+            // carouselItemTranslate.animation.in.from = outFromRight;
+            return carouselItemTranslate;
+          }
+        }
+        return carouselItemTranslate;
+      })();
+
+      debugger;
       if (children[lowerLimit]) {
         carouselPositions[lowerLimit] = carouselItemTransform;
         lowerLimit++;
@@ -177,9 +376,14 @@ const InfiniteCarousel = ({
   }
 
   function getTranslatePosition(index) {
+    // debugger;
     if (carouselTranslateVals[index]) return carouselTranslateVals[index];
 
-    return { visibility: 'hidden', height: 0, width: 0 };
+    return {
+      visibility: 'hidden',
+      height: 0,
+      width: 0
+    };
   }
 
   // ;
@@ -219,6 +423,7 @@ const InfiniteCarousel = ({
           gridTemplateRows="100%"
           gridColumnRows="100%"
           width="100%"
+          height="100vh"
         >
           {children.map((item, idx) => carouselSlide(idx))}
         </Ul>
