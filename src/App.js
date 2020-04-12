@@ -5,16 +5,20 @@ import Modal from './Modal';
 import {
   BounceAnimations,
   Div,
+  Box,
   Ul,
   Li,
   Button,
   Field,
   P,
-  H3
+  H3,
+  createLink
 } from '@cbryant24/styled-react';
 import formData from './inputSingle';
 import Form from '@cbryant24/styled-react-form';
 import { flashingText } from './style/animation';
+import { Link } from "react-router-dom";
+
 
 const App = () => {
   const [signinOpen, setSigninOpen] = useState(false);
@@ -73,64 +77,7 @@ const App = () => {
   // debugger;
   return (
     <Div bg="black" height="125vh" width="100vw">
-      <Modal
-        id="chapivia-modal"
-        modalMessage={modalMessage}
-        isOpen={isOpen}
-        toggleModal={toggleModal}
-        beforeOpen={beforeOpening}
-        afterOpen={beforeOpenAsync}
-        beforeClose={beforeClosing}
-        afteClose={afterClosing}
-        allowScroll={false}
-        afterClose={afterClosing}
-      >
-        <Div
-          themeStyle={'modalContainer'}
-          animation={{
-            in: BounceAnimations.BounceInTop,
-            duration_in: 1,
-            animation_fill_mode: 'both'
-          }}
-        >
-          <Div>Hell</Div>
-          <Div>World</Div>
-        </Div>
-      </Modal>
-      {/* <Field
-        data={inputs[0].data}
-        fieldStyle={inputs[0].fieldStyle}
-        inputStyle={inputs[0].inputStyle}
-      /> */}
-      {/* <Form inputs={inputs} form={form} buttons={buttons} /> */}
-      {/* <Button
-        width="100px"
-        height="100px"
-        backgroundColor="red"
-        onClick={doStuff}
-      >
-        Click Me
-      </Button>
-      <H3
-        display={signinOpen ? 'none' : 'block'}
-        textTransform="uppercase"
-        themeStyle={['marginLargeY']}
-        onClick={() => setSigninOpen(true)}
-        color="primary"
-        animation={flashingText}
-      >
-        Press Start To Play
-      </H3>
-      <Div height="90em"></Div> */}
-      <InfiniteCarousel
-        width="90vw"
-        bp={50}
-        carouselStyle={{ themeStyle: 'carouselNormal' }}
-
-        //initialSlide={10}
-      >
-        {arr}
-      </InfiniteCarousel>
+      <Box isA={Link} to="/world" fontSize="200px">Hello World</Box>
     </Div>
   );
 };

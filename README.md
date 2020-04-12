@@ -106,25 +106,25 @@ A default global styling with the most common global styling is also exported as
 
 An `a` tag is currently exported for general linking.
 
-Currently Styled-React is setup to use `react-router`. To create a link provide the exported `react-router-dom` `Link` to the `createLink` function exported from the Styled-React library. The `createLink` function returns a `react-router-dom Link` that can now be styled as normal with themeing included
+Currently Styled-React is setup to use `react-router`. To create a link provide the exported `react-router-dom` `Link` to the `Box` element exported from the Styled-React library
 
 ```javascript
 import { Link } from 'react-router-dom';
-import { Div, createLink } from '@cbryant24/styled-react';
+import { Div, Box } from '@cbryant24/styled-react';
 
 const App = () => {
-  const StyledLink = createLink(Link);
 
   return (
     <Div width="20rem" height="20rem" backgroundColor="black" fontSize={[1]}>
-      <StyledLink
+      <Box
+        isA={Link}
         themeStyle={'linkStyle'}
         fontSize={[2]}
         color="white"
         to="/home"
       >
         Home
-      </StyledLink>
+      </Box>
     </Div>
   );
 };
