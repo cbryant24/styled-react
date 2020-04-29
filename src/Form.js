@@ -2,7 +2,7 @@ import React from 'react';
 import { Div } from '@cbryant24/styled-react';
 import Form from '@cbryant24/styled-react-form';
 
-const Form = () => {
+const AppForm = () => {
   const signinValidation = {
     title: 'signup',
     description: 'User Signin',
@@ -41,13 +41,13 @@ const Form = () => {
   const inputs = [
     {
       data: { type: 'email', name: 'email', label: 'email', placeholder: 'enter email', required: true },
-      fieldStyle: 'field',
-      inputStyle: { themeStyle: 'inputNorm'}
+      fieldStyle: { width: [1], height: ['15%'], justifyContent: 'space-between', flexDirection: 'column'},
+      inputStyle: { themeStyle: 'inputMain'}
     },
     {
       data: { type: 'password', name: 'password', label: 'password', placeholder: 'enter password', required: true },
       fieldStyle: { width: [1], height: ['15%'], justifyContent: 'space-between', flexDirection: 'column'},
-      inputStyle: { themeStyle: 'inputNorm'}
+      inputStyle: { themeStyle: 'inputMain'}
     }
   ];
 
@@ -59,16 +59,14 @@ const Form = () => {
   const form = {
     data: { name: 'signinForm', submit: 'signup' },
     style: 'authForm'
-  }
-
-  
+  };
 
   function userSignin() {
     debugger
   }
 
   return (
-    <Div width="20rem" height="20rem" themeStyle="colorBg" fontSize={[1]}>
+    <Div width="20rem" height="20rem" themeStyle="colorBg" fontSize={[1]} backgroundColor="white">
       <Form
         onSubmit={userSignin}
         form={form}
@@ -80,4 +78,4 @@ const Form = () => {
   )
 }
 
-export default Form;
+export default AppForm;

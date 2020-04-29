@@ -12,13 +12,12 @@ import {
   Field,
   P,
   H3,
-  createLink
 } from '@cbryant24/styled-react';
 import formData from './inputSingle';
-import Form from '@cbryant24/styled-react-form';
+import Form from './Form';
 import { flashingText } from './style/animation';
 import { Link } from "react-router-dom";
-
+import LocalForm from './Field';
 
 const App = () => {
   const [signinOpen, setSigninOpen] = useState(false);
@@ -77,7 +76,9 @@ const App = () => {
   // debugger;
   return (
     <Div bg="black" height="125vh" width="100vw">
-      <Box isA={Link} to="/world" fontSize="200px">Hello World</Box>
+      <Box isA={Link} to="/world" fontSize="20px">Hello World</Box>
+      {/* <Form/> */}
+      <LocalForm/>
     </Div>
   );
 };

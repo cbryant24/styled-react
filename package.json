@@ -1,6 +1,6 @@
 {
   "name": "@cbryant24/styled-react",
-  "version": "0.0.25",
+  "version": "0.0.40",
   "description": "CSS Styles can be applied to components by writing css styles as props or themeing",
   "main": "dist/index.js",
   "keywords": [
@@ -40,7 +40,7 @@
     "@babel/core": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
     "@babel/preset-react": "^7.8.3",
-    "@cbryant24/styled-react-form": "latest",
+    "@cbryant24/styled-react-form": "0.0.31",
     "@styled-system/css": "^5.0.23",
     "@styled-system/theme-get": "^5.1.1",
     "@types/styled-system": "^5.0.1",
