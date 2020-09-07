@@ -5,14 +5,19 @@ const htmlWebpackPlugin = new HtmlWebpackPlugin({
     filename: "index.html",
     inject: "body"
 });
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = [{
   name: 'styled-react-npm',
-  entry: path.join(__dirname, "./lib/index.js"),
+  entry: {
+    main: path.join(__dirname, "./lib/index.js"),
+    vendor: ["styled-components"],
+  },
+  watch: false,
   devtool: 'source-map',
   output: {
     path: path.join(__dirname, "/dist"),
-    filename: "index.js",
+    filename: "[name].js",
     library: "styledreact",
     libraryTarget: "commonjs2"
   },
@@ -46,7 +51,7 @@ module.exports = [{
   devtool: 'source-map',
   output: {
     path: path.join(__dirname, "/dist-dev"),
-    filename: "index.js"
+    filename: "[name].js"
   },
   module: {
       rules: [
@@ -61,9 +66,14 @@ module.exports = [{
           }
       ]
   },
-  plugins: [htmlWebpackPlugin],
+  plugins: [htmlWebpackPlugin, new BundleAnalyzerPlugin({analyzerPort: 8889})],
   resolve: {
       extensions: [".js", ".jsx"]
+  },
+  optimization: {
+      splitChunks: {
+        chunks: 'all'
+      }
   },
   devServer: {
       port: 3001

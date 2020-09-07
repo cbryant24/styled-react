@@ -102,6 +102,46 @@ const linkStyle = {
   hover: { color: 'red' }
 };
 
+const animationStyle = {
+  // continousAnimation = {
+    // continuous: {
+    //   from: { opacity: 0 },
+    //   to: { opacity: 1 }
+    // },
+    // duration_continuous: 1,
+  // }
+  width: [1, 2], 
+  height:"20vh", 
+  bg:"white",
+  animation: {
+    continuous: {
+      from: { opacity: 0 },
+      to: { opacity: 1 }
+    },
+    duration_continuous: 1,
+    animation_direction: 'alternate-reverse'
+  }
+
+}
+
+const newAnimationStyle = {
+  width: [1, 2], 
+  height:"20vh", 
+  bg:"white",
+  animation: {
+    continuous: {
+      '0%': { 'width': '50%' },
+      '100%': { 'width': '100%' }
+    },
+    duration_continuous: 3,
+    animation_direction: 'alternate-reverse'
+  }
+}
+
+const marginLarge = {
+  margin: '2rem'
+}
+
 const theme = {
   ...formInputs,
   ...buttons,
@@ -121,7 +161,10 @@ const theme = {
   sizes,
   colors,
   lineHeights,
-  linkStyle
+  linkStyle,
+  animationStyle,
+  newAnimationStyle,
+  marginLarge
 };
 
 export default theme;

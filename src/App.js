@@ -1,84 +1,47 @@
-import React, { useState } from 'react';
-// import { Div, Button } from '@cbryant24/styled-react';
-import InfiniteCarousel from './InfiniteCarousel';
-import Modal from './Modal';
+import React from 'react';
 import {
-  BounceAnimations,
   Div,
-  Box,
-  Ul,
-  Li,
-  Button,
-  Field,
-  P,
-  H3,
 } from '@cbryant24/styled-react';
-import formData from './inputSingle';
-import Form from './Form';
-import { flashingText } from './style/animation';
-import { Link } from "react-router-dom";
-import LocalForm from './Field';
+import { continousAnimation } from './style/animation';
+import Title from './Title';
 
 const App = () => {
-  const [signinOpen, setSigninOpen] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
-  const [modalMessage, setModalMessage] = useState('');
-  const { form, inputs, buttons } = formData;
-  const arr = [];
 
-  for (let i = 0; i <= 11; i++) {
-    arr.push(
-      <Div
-        width="85%"
-        height="85%"
-        border="1px solid purple"
-        backgroundColor="red"
-        color="white"
-      >
-        {i}
-      </Div>
-    );
-  }
-
-  const toggleModal = e => {
-    setIsOpen(!isOpen);
-    setModalMessage('Styled React!!');
+  const customAnimation = {
+    in: {
+      '0%': { opacity: 0 },
+      '10%': { opacity: .75 },
+      '100%': { opacity: 1 }
+    },
+    duration_in: 30
   };
 
-  const doStuff = () => {
-    toggleModal();
-    setSigninOpen(false);
-  };
-
-  function beforeOpenAsync() {
-    return new Promise((resolve, reject) => {
-      setTimeout(function() {
-        resolve(console.log('Success'));
-      }, 3000);
-    });
-  }
-
-  function beforeOpening() {
-    console.log('IM BEFORE OPENING');
-  }
-
-  function afterOpening() {
-    console.log('IM AFTER OPENING');
-  }
-
-  function beforeClosing() {
-    console.log('IM BEFORE CLOSING');
-  }
-
-  function afterClosing() {
-    console.log('IM AFTER CLOSING');
-  }
+  // const continousAnimation = {
+  //   continuous: {
+  //     from: { opacity: 0 },
+  //     to: { opacity: 1 }
+  //   },
+  //   duration_continuous: 3,
+  //   animation_direction: 'alternate-reverse'
+  // }
+  
   // debugger;
   return (
-    <Div bg="black" height="125vh" width="100vw">
-      <Box isA={Link} to="/world" fontSize="20px">Hello World</Box>
-      {/* <Form/> */}
-      <LocalForm/>
+    <Div bg="black" height="100vh" width="100vw" display="flex" justifyContent="center" alignItems="center">
+      <Div width="20vw" height="20vh" bg="red" animation={customAnimation}>Hello World</Div>
+      <Div themeStyle={["newAnimationStyle", "marginLarge"]}>Goodbye World</Div>
+      <Div 
+        pseudo
+        hover={{fontSize: '2.4rem', color: 'blue', height: '200px', width: '300px'}} 
+        backgroundColor="yellow" 
+        color="orange" 
+        width="200px"
+        height="100px"
+        transition="font-size 4s linear, height 2s linear, width 3s linear"
+      >
+        Im The Pseudo
+      </Div>
+      <Title/>
     </Div>
   );
 };

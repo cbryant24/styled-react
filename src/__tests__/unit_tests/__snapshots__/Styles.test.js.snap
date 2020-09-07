@@ -1,0 +1,137 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`applied styles animation has all animation css rules 1`] = `
+.c0 {
+  box-sizing: border-box;
+  min-width: 0;
+  -webkit-animation-name: iHtkXv;
+  animation-name: iHtkXv;
+  -webkit-animation-duration: 3s;
+  animation-duration: 3s;
+  -webkit-animation-play-state: running;
+  animation-play-state: running;
+}
+
+<Styled(Styled(Component))
+  animation={
+    Object {
+      "duration_in": 3,
+      "in": Object {
+        "from": Object {
+          "opacity": 0,
+        },
+        "to": Object {
+          "opacity": 1,
+        },
+      },
+    }
+  }
+>
+  <Component
+    animation={
+      Object {
+        "duration_in": 3,
+        "in": Object {
+          "from": Object {
+            "opacity": 0,
+          },
+          "to": Object {
+            "opacity": 1,
+          },
+        },
+      }
+    }
+    className="c0"
+    isA="div"
+  >
+    <div
+      className="c0"
+    />
+  </Component>
+</Styled(Styled(Component))>
+`;
+
+exports[`applied styles has a div with margin 50% 1`] = `
+.c0 {
+  box-sizing: border-box;
+  min-width: 0;
+  width: 75%;
+}
+
+<Component
+  className="c0"
+  isA="div"
+  width="75%"
+/>
+`;
+
+exports[`applied styles properly displays camelcase css 1`] = `
+.c0 {
+  box-sizing: border-box;
+  min-width: 0;
+  background-color: red;
+}
+
+<Component
+  backgroundColor="red"
+  className="c0"
+  isA="div"
+/>
+`;
+
+exports[`applied styles properly displays destructed object styles 1`] = `
+.c0 {
+  box-sizing: border-box;
+  min-width: 0;
+  -webkit-clip-path: circle(40%);
+  clip-path: circle(40%);
+  height: 200px;
+}
+
+<Component
+  className="c0"
+  clipPath="circle(40%)"
+  height="200px"
+  isA="div"
+/>
+`;
+
+exports[`applied styles pseudo has hover styles 1`] = `
+.c0 {
+  box-sizing: border-box;
+  min-width: 0;
+  -webkit-transition: font-size 4s linear,height 2s linear,width 3s linear;
+  transition: font-size 4s linear,height 2s linear,width 3s linear;
+  -webkit-transition: font-size 4s linear,height 2s linear,width 3s linear;
+  transition: font-size 4s linear,height 2s linear,width 3s linear;
+}
+
+.c0:hover {
+  font-size: 2.4rem;
+  height: 200px;
+  width: 300px;
+  color: blue;
+}
+
+.c0:hover {
+  font-size: 2.4rem;
+  height: 200px;
+  width: 300px;
+  color: blue;
+}
+
+<Component
+  className="c0"
+  hover={
+    Object {
+      "color": "blue",
+      "fontSize": "2.4rem",
+      "height": "200px",
+      "width": "300px",
+    }
+  }
+  isA="div"
+  pseudo={true}
+  transition="font-size 4s linear, height 2s linear, width 3s linear"
+/>
+`;

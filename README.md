@@ -8,24 +8,21 @@ Library for styling React components using `css-in-js` and theming.
 
 The following html elements are exported for use in component rendering and styling
 
-- `Box - Default Div type which can be set to any html type` <small>[see isA attribute](#Element-Types)</small>
-- `Div`
-- `FlexDiv - Div with the flex type set`
-- `GridDiv - Div with the grid type set`
-- `Form`
-- `FlexForm - Form with the flex type set`
-- `GridForm - Form with the grid type set`
-- `Button`
-- `FlexButton - Button with the flex type set`
-- `GridButton - Button with the grid type set`
-- `Li`
-- `FlexLi - Li with the flex type set`
-- `GridLi - Li with the grid type set`
-- `Ul`
-- `FlexUl - Ul with the flex type set`
-- `GridUl - Ul with the grid type set`
-- `Field - See Field instructions` <small>[here](#Field)</small>
-- `StyledModal - see Modal instructions` <small>[here](#Modal)</small>
+
+| Element     | Description                                                                                  | Variations             |
+|-------------|----------------------------------------------------------------------------------------------|------------------------|
+| Box         | Default Div type which can be set to any html type  [ see isA attribute ] ( #Element-Types ) |                        |
+| Div         | html div tag `<div></div>`                                                                   | FlexDiv, GridDiv       |
+| Form        | html form element `<form></form>`                                                            | FlexForm, GridForm     |
+| Button      | html button element `<button></button>`                                                      | FlexButton, GridButton |
+| Li          | hmtl li element `<li></li>`                                                                  | FlexLi, GridLi         |
+| Ul          | html ul element `<ul></ul>`                                                                  | FlexUl, GridUl         |
+| H1-H6       | h1 through h6 element `<h1></h1>`                                                            | FlexH[1-6], GridH[1-6] |
+| Span        | html span element `<span></span>`                                                            | FlexSpan, GridSpan     |
+| Field       | Custom Field element for forms see [here](#Field)                                            |                        |
+| StyledModal | See Modal Instructions [here](#Modal)                                                        |                        |
+
+<br>
 
 Styles can be applied to components by writing css styles directly as props
 
@@ -270,11 +267,18 @@ export default Form = props => {
 
 ## Animations/Transitions
 
-To define the animations provide an object to the `animation` prop with the appropriate properties
+ADD WAY TO SPECIFY PREMADE ANIMATION WITH JUST STRING
+LIST OUT ANIMATIONS WITH EXAMPLES 
+### Quick Start
+Styled-React has predefined animations that can be used to quickly add animations to elements
+
+### Custom Animations 
+
+Animations can be defined using the `animation` property and providing an object with the appropriate properties listed below. Note that some properties work in conjuction with only certain types of animation i.e. `duration_in` can only be used if `in` animation is defined, also some properties are required if using a certain type of animation i.e. if using `continuous` animation type then `duration_continuous` property must be defined as well.
 
 - `in`: This property receives an animation keyframe that will be used to animate in the component.
   - If providing an an animation a `duration_in` property and value must be provided
-- `delay_in`: This property receives and integer and will set the time that the component will take to start being animated. While this time isn't reached, the component will be mounted but will display nothing. If this property is not setted there won't be any delay in for the component to start animating.
+- `delay_in`: This property receives an integer and will set the time that the component will take to start being animated. While this time isn't reached, the component will be mounted but will display nothing. If this property is not setted there won't be any delay in for the component to start animating.
 - `duration_in`: This property receives and integer greater than 0 and will set the duration in seconds for the in animation.
 - `continuous`: This property receives an animation keyframe that will be used to animate between in and out (if proceed).
 - `duration_continuous`: This property receives an integer greater than 0 and will set the duration in seconds for the continuous animation.
@@ -285,6 +289,43 @@ To define the animations provide an object to the `animation` prop with the appr
 - `animation_fill_mode`: property accepts `none | forwards | backwards | both | initial | inherit;` if none is provided the default value `none` will be used.
 - `animation_timing_function`: property accepts `linear | ease | ease-in | ease-out | ease-in-out | step-start | step-end | steps(int, start|end) | cubic-bezier(n,n,n,n) | initial | inherit` if none is provided the default value of `ease` will be used.
 - `animation_direction`: property accepts `normal | reverse | alternate | alternate-reverse | initial | inherit` if none is provided the default value of `normal` will be used.
+
+### In Animation
+
+The `in` animation property receives a plain javascript object that represents the animation keyframes using either the keywords `from` and `to` or using `0%` representation
+
+When using the `in` animation the `duration_in` property is required as this defines how long it will take for the animation to start until end
+
+```javascript
+  <Box
+    animation={{
+      in: {
+        from: { opacity: 0 },
+        to: { opacity: 1 }
+      },
+      duration_in: 3
+    }}
+  >
+    Im animating in
+  </Box>
+```
+
+Can also be defined using percentages
+
+```javascript
+  <Box
+    animation={{
+      in: {
+      '0%': { opacity: 0 },
+      '10%': { opacity: .75 },
+      '100%': { opacity: 1 }
+      },
+      duration_in: 3
+    }}
+  >
+    Im animating in
+  </Box>
+```
 
 ```javascript
 <Box
@@ -350,6 +391,18 @@ const customAnimation = {
 };
 
 <Box animation={animation}>I'm animating</Box>;
+```
+```javascript
+  const continousAnimation = {
+    continuous: {
+      from: { opacity: 0 },
+      to: { opacity: 1 }
+    },
+    duration_continuous: 1,
+    animation_direction: 'alternate-reverse'
+  }
+
+  <Box animation={animation}>I'm animating</Box>;
 ```
 
 To animatate multiple properties each property needs to be defined separatly seperately
