@@ -1,9 +1,3 @@
-import * as formInputs from './forms_inputs';
-import * as buttons from './buttons';
-import * as marginSpace from './space';
-import * as modal from './modal';
-import * as carousel from './carousel';
-
 const red = '#e42d42';
 const white = '#ffffff';
 const black = '#000000';
@@ -17,7 +11,7 @@ export const colors = {
   secondary
 };
 
-const createMediaQuery = n => `@media screen and (min-width:${n})`;
+const createMediaQuery = n => `@media screen and (min-width:${n}px)`;
 
 const addAliases = (arr, aliases) =>
   aliases.forEach((key, i) =>
@@ -34,15 +28,14 @@ const addAliases = (arr, aliases) =>
 const aliases = ['sm', 'md', 'lg', 'xl'];
 const breakpoints = ['544px', '768px', '1012px', '1280px'];
 
-// const mediaQueries = {
-//   ...breakpoints.map(createMediaQuery),
-//   reduceMotion: '@media (prefers-reduced-motion: reduce)',
-//   reduceTransparency: '@media (prefers-reduced-transparency: reduce)'
-// };
-// debugger
+const mediaQueries = {
+  ...breakpoints.map(createMediaQuery),
+  reduceMotion: '@media (prefers-reduced-motion: reduce)',
+  reduceTransparency: '@media (prefers-reduced-transparency: reduce)'
+};
 
-// addAliases(breakpoints, aliases);
-// addAliases(mediaQueries, aliases);
+addAliases(breakpoints, aliases);
+addAliases(mediaQueries, aliases);
 
 const emoji = '"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"';
 const font = `development,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif,${emoji}`;
@@ -92,10 +85,6 @@ const boxShadows = [
 
 const zIndices = [0, 1, 5, 10];
 
-//DEFAULT INPUT STYLING
-
-const buttonPadding = [0, '.5em', '1em'];
-
 const linkStyle = {
   pseudo: true,
   color: 'white',
@@ -104,13 +93,6 @@ const linkStyle = {
 };
 
 const animationStyle = {
-  // continousAnimation = {
-    // continuous: {
-    //   from: { opacity: 0 },
-    //   to: { opacity: 1 }
-    // },
-    // duration_continuous: 1,
-  // }
   width: [1, 2], 
   height:"20vh", 
   bg:"white",
@@ -144,13 +126,8 @@ const marginLarge = {
 }
 
 const theme = {
-  ...formInputs,
-  ...buttons,
-  ...marginSpace,
-  ...modal,
-  ...carousel,
-  // breakpoints,
-  // mediaQueries,
+  breakpoints,
+  mediaQueries,
   font,
   mono,
   fontSizes,
@@ -160,12 +137,14 @@ const theme = {
   boxShadows,
   zIndices,
   sizes,
+  space,
   colors,
   lineHeights,
   linkStyle,
   animationStyle,
   newAnimationStyle,
-  marginLarge
+  marginLarge,
+  radii,
 };
 
 export default theme;

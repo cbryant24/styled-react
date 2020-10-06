@@ -5,10 +5,37 @@ import { ThemeProvider, ModalProvider } from '@cbryant24/styled-react';
 import App from './App';
 import theme from './style/theme';
 
+const squareButton = {
+  display: "inline-block",
+  boxShadow: "none",
+  backgroundColor: "red",
+  textDecoration: "none",
+  transition: "box-shadow 0.125s ease-out 0s",
+  borderWidth: "2px",
+  borderStyle: "solid",
+  borderColor: "red",
+  px: [1, 2],
+  py: [1, 2],
+}
+
+const largeButton = {
+  px: [2, 3],
+  py: [2, 3],
+  color: 'blue',
+  backgroundColor: "yellow"
+}
+
+const newThemeVals = {
+  colors: {
+    primary: '#FFD300'
+  },
+  breakpoints: ['230px', '34em', '43rem', '900px']
+}
+
 ReactDOM.render(
   <Router>
     <ModalProvider>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider>
         <App />
       </ThemeProvider>
     </ModalProvider>

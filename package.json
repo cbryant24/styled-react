@@ -27,8 +27,8 @@
     "@styled-system/css": "^5.0.23",
     "@styled-system/theme-get": "^5.1.1",
     "@types/styled-system": "^5.0.1",
-    "styled-system": "^5.0.12",
-    "styled-components": "^5.1.1"
+    "styled-components": "^5.1.1",
+    "styled-system": "^5.0.12"
   },
   "peerDependencies": {
     "react": "^16.12.0",

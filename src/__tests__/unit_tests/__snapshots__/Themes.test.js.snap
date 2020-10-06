@@ -1,0 +1,1122 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`theme aliases displays css with appropriate aliases 1`] = `
+.c0 {
+  box-sizing: border-box;
+  min-width: 0;
+  margin-left: 1em;
+  margin-right: 1em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  padding-left: 2em;
+  padding-right: 2em;
+  font-size: 1.75em;
+}
+
+<j>
+  <ThemeProvider
+    theme={
+      Object {
+        "borders": Array [
+          "1px solid black",
+          "2px solid black",
+        ],
+        "boxShadows": Array [
+          "0 0 2px 0 rgba(0,0,0,.08),0 24px 24px 0 rgba(0,0,0,0.16)",
+          "0 0 2px 0 rgba(0,0,0,.08),0 12px 12px 0 rgba(0,0,0,0.16)",
+          "0 0 2px 0 rgba(0,0,0,.08),0 4px 8px 0 rgba(0,0,0,0.16)",
+          "0 0 2px 0 rgba(0,0,0,.08),0 2px 4px 0 rgba(0,0,0,0.16)",
+        ],
+        "breakpoints": Array [
+          "544px",
+          "768px",
+          "1012px",
+          "1280px",
+        ],
+        "colors": Object {
+          "black": "#000",
+          "blacks": Array [
+            "rgba(0,0,0,.0125)",
+            "rgba(0,0,0,.025)",
+            "rgba(0,0,0,.05)",
+            "rgba(0,0,0,.1)",
+            "rgba(0,0,0,.2)",
+            "rgba(0,0,0,.3)",
+            "rgba(0,0,0,.4)",
+            "rgba(0,0,0,.5)",
+            "rgba(0,0,0,.6)",
+            "rgba(0,0,0,.7)",
+            "rgba(0,0,0,.8)",
+            "rgba(0,0,0,.9)",
+            "rgba(0,0,0,1)",
+          ],
+          "blue": "#0147FE",
+          "blues": Array [
+            "rgba(31, 58, 147, .0125)",
+            "rgba(31, 58, 147, .025)",
+            "rgba(31, 58, 147, .05)",
+            "rgba(31, 58, 147, .1)",
+            "rgba(31, 58, 147, .2)",
+            "rgba(31, 58, 147, .3)",
+            "rgba(31, 58, 147, .4)",
+            "rgba(31, 58, 147, .5)",
+            "rgba(31, 58, 147, .6)",
+            "rgba(31, 58, 147, .7)",
+            "rgba(31, 58, 147, .8)",
+            "rgba(31, 58, 147, .9)",
+            "rgba(31, 58, 147, 1)",
+          ],
+          "dark-gray": "#333",
+          "gray": "#777",
+          "grays": Array [
+            "rgba(46, 49, 49, .0125)",
+            "rgba(46, 49, 49, .025)",
+            "rgba(46, 49, 49, .05)",
+            "rgba(46, 49, 49, .1)",
+            "rgba(46, 49, 49, .2)",
+            "rgba(46, 49, 49, .3)",
+            "rgba(46, 49, 49, .4)",
+            "rgba(46, 49, 49, .5)",
+            "rgba(46, 49, 49, .6)",
+            "rgba(46, 49, 49, .7)",
+            "rgba(46, 49, 49, .8)",
+            "rgba(46, 49, 49, .9)",
+            "rgba(46, 49, 49, 1)",
+          ],
+          "green": "#1e824c",
+          "greens": Array [
+            "rgba(30, 130, 76, .0125)",
+            "rgba(30, 130, 76, .025)",
+            "rgba(30, 130, 76, .05)",
+            "rgba(30, 130, 76, .1)",
+            "rgba(30, 130, 76, .2)",
+            "rgba(30, 130, 76, .3)",
+            "rgba(30, 130, 76, .4)",
+            "rgba(30, 130, 76, .5)",
+            "rgba(30, 130, 76, .6)",
+            "rgba(30, 130, 76, .7)",
+            "rgba(30, 130, 76, .8)",
+            "rgba(30, 130, 76, .9)",
+            "rgba(30, 130, 76, 1)",
+          ],
+          "light-gray": "#eee",
+          "light-silver": "#aaa",
+          "mid-gray": "#555",
+          "moon-gray": "#ccc",
+          "near-black": "#111",
+          "near-white": "#f4f4f4",
+          "orange": "#f89406",
+          "oranges": Array [
+            "rgba(248, 148, 6, .0125)",
+            "rgba(248, 148, 6, .025)",
+            "rgba(248, 148, 6, .05)",
+            "rgba(248, 148, 6, .1)",
+            "rgba(248, 148, 6, .2)",
+            "rgba(248, 148, 6, .3)",
+            "rgba(248, 148, 6, .4)",
+            "rgba(248, 148, 6, .5)",
+            "rgba(248, 148, 6, .6)",
+            "rgba(248, 148, 6, .7)",
+            "rgba(248, 148, 6, .8)",
+            "rgba(248, 148, 6, .9)",
+            "rgba(248, 148, 6, 1)",
+          ],
+          "primary": "#FE2711",
+          "purple": "#9a12b3",
+          "purples": Array [
+            "rgba(154, 18, 179, .0125)",
+            "rgba(154, 18, 179, .025)",
+            "rgba(154, 18, 179, .05)",
+            "rgba(154, 18, 179, .1)",
+            "rgba(154, 18, 179, .2)",
+            "rgba(154, 18, 179, .3)",
+            "rgba(154, 18, 179, .4)",
+            "rgba(154, 18, 179, .5)",
+            "rgba(154, 18, 179, .6)",
+            "rgba(154, 18, 179, .7)",
+            "rgba(154, 18, 179, .8)",
+            "rgba(154, 18, 179, .9)",
+            "rgba(154, 18, 179, 1)",
+          ],
+          "red": "#FE2711",
+          "reds": Array [
+            "rgba(207, 0, 15, .0125)",
+            "rgba(207, 0, 15, .025)",
+            "rgba(207, 0, 15, .05)",
+            "rgba(207, 0, 15, .1)",
+            "rgba(207, 0, 15, .2)",
+            "rgba(207, 0, 15, .3)",
+            "rgba(207, 0, 15, .4)",
+            "rgba(207, 0, 15, .5)",
+            "rgba(207, 0, 15, .6)",
+            "rgba(207, 0, 15, .7)",
+            "rgba(207, 0, 15, .8)",
+            "rgba(207, 0, 15, .9)",
+            "rgba(207, 0, 15, 1)",
+          ],
+          "secondary": "#FEFE32",
+          "silver": "#999",
+          "tertiary": "#0147FE",
+          "transparent": "transparent",
+          "white": "#fff",
+          "whites": Array [
+            "rgba(255,255,255,.0125)",
+            "rgba(255,255,255,.025)",
+            "rgba(255,255,255,.05)",
+            "rgba(255,255,255,.1)",
+            "rgba(255,255,255,.2)",
+            "rgba(255,255,255,.3)",
+            "rgba(255,255,255,.4)",
+            "rgba(255,255,255,.5)",
+            "rgba(255,255,255,.6)",
+            "rgba(255,255,255,.7)",
+            "rgba(255,255,255,.8)",
+            "rgba(255,255,255,.9)",
+            "rgba(255,255,255,1)",
+          ],
+          "yellow": "#FEFE32",
+          "yellows": Array [
+            "rgba(245, 229, 27, .0125)",
+            "rgba(245, 229, 27, .025)",
+            "rgba(245, 229, 27, .05)",
+            "rgba(245, 229, 27, .1)",
+            "rgba(245, 229, 27, .2)",
+            "rgba(245, 229, 27, .3)",
+            "rgba(245, 229, 27, .4)",
+            "rgba(245, 229, 27, .5)",
+            "rgba(245, 229, 27, .6)",
+            "rgba(245, 229, 27, .7)",
+            "rgba(245, 229, 27, .8)",
+            "rgba(245, 229, 27, .9)",
+            "rgba(245, 229, 27, 1)",
+          ],
+        },
+        "fontSizes": Array [
+          0,
+          "1.2em",
+          "1.6em",
+          "2em",
+          "2.4em",
+        ],
+        "fontSizesModule": Array [
+          0,
+          "1rem",
+          "2rem",
+          "3rem",
+          "4rem",
+        ],
+        "fontWeights": Array [
+          100,
+          200,
+          300,
+          400,
+          500,
+          600,
+          700,
+          800,
+          900,
+        ],
+        "letterSpacings": Object {
+          "mega": "0.25em",
+          "normal": "normal",
+          "tight": "-0.05em",
+          "tracked": "0.1em",
+        },
+        "lineHeights": Object {
+          "condensed": 1.25,
+          "condensedUltra": 1.5,
+          "default": 1,
+        },
+        "radii": Array [
+          "0px",
+          "50px",
+          "25px",
+          "15px",
+          "9999px",
+        ],
+        "sizes": Array [
+          "0%",
+          "20%",
+          "25%",
+          "33%",
+          "50%",
+          "100%",
+        ],
+        "space": Array [
+          0,
+          "1em",
+          "2em",
+          "3em",
+          "4em",
+        ],
+        "zIndices": Array [
+          0,
+          1,
+          5,
+          10,
+          25,
+          50,
+          100,
+        ],
+      }
+    }
+  >
+    <Styled(Styled(Component))
+      fontSize="md"
+      mx={
+        Array [
+          1,
+        ]
+      }
+      my={
+        Array [
+          2,
+        ]
+      }
+      px={
+        Array [
+          2,
+        ]
+      }
+      py={
+        Array [
+          1,
+        ]
+      }
+    >
+      <Component
+        className="c0"
+        fontSize="md"
+        isA="div"
+        mx={
+          Array [
+            1,
+          ]
+        }
+        my={
+          Array [
+            2,
+          ]
+        }
+        px={
+          Array [
+            2,
+          ]
+        }
+        py={
+          Array [
+            1,
+          ]
+        }
+      >
+        <div
+          className="c0"
+        />
+      </Component>
+    </Styled(Styled(Component))>
+  </ThemeProvider>
+</j>
+`;
+
+exports[`theme applies theme styles 1`] = `
+.c0 {
+  box-sizing: border-box;
+  min-width: 0;
+  width: 33%;
+  font-size: 2.4em;
+  margin: 2em;
+  color: #FE2711;
+  line-height: 1.25;
+  font-weight: 300;
+}
+
+<j>
+  <ThemeProvider
+    theme={
+      Object {
+        "borders": Array [
+          "1px solid black",
+          "2px solid black",
+        ],
+        "boxShadows": Array [
+          "0 0 2px 0 rgba(0,0,0,.08),0 24px 24px 0 rgba(0,0,0,0.16)",
+          "0 0 2px 0 rgba(0,0,0,.08),0 12px 12px 0 rgba(0,0,0,0.16)",
+          "0 0 2px 0 rgba(0,0,0,.08),0 4px 8px 0 rgba(0,0,0,0.16)",
+          "0 0 2px 0 rgba(0,0,0,.08),0 2px 4px 0 rgba(0,0,0,0.16)",
+        ],
+        "breakpoints": Array [
+          "544px",
+          "768px",
+          "1012px",
+          "1280px",
+        ],
+        "colors": Object {
+          "black": "#000",
+          "blacks": Array [
+            "rgba(0,0,0,.0125)",
+            "rgba(0,0,0,.025)",
+            "rgba(0,0,0,.05)",
+            "rgba(0,0,0,.1)",
+            "rgba(0,0,0,.2)",
+            "rgba(0,0,0,.3)",
+            "rgba(0,0,0,.4)",
+            "rgba(0,0,0,.5)",
+            "rgba(0,0,0,.6)",
+            "rgba(0,0,0,.7)",
+            "rgba(0,0,0,.8)",
+            "rgba(0,0,0,.9)",
+            "rgba(0,0,0,1)",
+          ],
+          "blue": "#0147FE",
+          "blues": Array [
+            "rgba(31, 58, 147, .0125)",
+            "rgba(31, 58, 147, .025)",
+            "rgba(31, 58, 147, .05)",
+            "rgba(31, 58, 147, .1)",
+            "rgba(31, 58, 147, .2)",
+            "rgba(31, 58, 147, .3)",
+            "rgba(31, 58, 147, .4)",
+            "rgba(31, 58, 147, .5)",
+            "rgba(31, 58, 147, .6)",
+            "rgba(31, 58, 147, .7)",
+            "rgba(31, 58, 147, .8)",
+            "rgba(31, 58, 147, .9)",
+            "rgba(31, 58, 147, 1)",
+          ],
+          "dark-gray": "#333",
+          "gray": "#777",
+          "grays": Array [
+            "rgba(46, 49, 49, .0125)",
+            "rgba(46, 49, 49, .025)",
+            "rgba(46, 49, 49, .05)",
+            "rgba(46, 49, 49, .1)",
+            "rgba(46, 49, 49, .2)",
+            "rgba(46, 49, 49, .3)",
+            "rgba(46, 49, 49, .4)",
+            "rgba(46, 49, 49, .5)",
+            "rgba(46, 49, 49, .6)",
+            "rgba(46, 49, 49, .7)",
+            "rgba(46, 49, 49, .8)",
+            "rgba(46, 49, 49, .9)",
+            "rgba(46, 49, 49, 1)",
+          ],
+          "green": "#1e824c",
+          "greens": Array [
+            "rgba(30, 130, 76, .0125)",
+            "rgba(30, 130, 76, .025)",
+            "rgba(30, 130, 76, .05)",
+            "rgba(30, 130, 76, .1)",
+            "rgba(30, 130, 76, .2)",
+            "rgba(30, 130, 76, .3)",
+            "rgba(30, 130, 76, .4)",
+            "rgba(30, 130, 76, .5)",
+            "rgba(30, 130, 76, .6)",
+            "rgba(30, 130, 76, .7)",
+            "rgba(30, 130, 76, .8)",
+            "rgba(30, 130, 76, .9)",
+            "rgba(30, 130, 76, 1)",
+          ],
+          "light-gray": "#eee",
+          "light-silver": "#aaa",
+          "mid-gray": "#555",
+          "moon-gray": "#ccc",
+          "near-black": "#111",
+          "near-white": "#f4f4f4",
+          "orange": "#f89406",
+          "oranges": Array [
+            "rgba(248, 148, 6, .0125)",
+            "rgba(248, 148, 6, .025)",
+            "rgba(248, 148, 6, .05)",
+            "rgba(248, 148, 6, .1)",
+            "rgba(248, 148, 6, .2)",
+            "rgba(248, 148, 6, .3)",
+            "rgba(248, 148, 6, .4)",
+            "rgba(248, 148, 6, .5)",
+            "rgba(248, 148, 6, .6)",
+            "rgba(248, 148, 6, .7)",
+            "rgba(248, 148, 6, .8)",
+            "rgba(248, 148, 6, .9)",
+            "rgba(248, 148, 6, 1)",
+          ],
+          "primary": "#FE2711",
+          "purple": "#9a12b3",
+          "purples": Array [
+            "rgba(154, 18, 179, .0125)",
+            "rgba(154, 18, 179, .025)",
+            "rgba(154, 18, 179, .05)",
+            "rgba(154, 18, 179, .1)",
+            "rgba(154, 18, 179, .2)",
+            "rgba(154, 18, 179, .3)",
+            "rgba(154, 18, 179, .4)",
+            "rgba(154, 18, 179, .5)",
+            "rgba(154, 18, 179, .6)",
+            "rgba(154, 18, 179, .7)",
+            "rgba(154, 18, 179, .8)",
+            "rgba(154, 18, 179, .9)",
+            "rgba(154, 18, 179, 1)",
+          ],
+          "red": "#FE2711",
+          "reds": Array [
+            "rgba(207, 0, 15, .0125)",
+            "rgba(207, 0, 15, .025)",
+            "rgba(207, 0, 15, .05)",
+            "rgba(207, 0, 15, .1)",
+            "rgba(207, 0, 15, .2)",
+            "rgba(207, 0, 15, .3)",
+            "rgba(207, 0, 15, .4)",
+            "rgba(207, 0, 15, .5)",
+            "rgba(207, 0, 15, .6)",
+            "rgba(207, 0, 15, .7)",
+            "rgba(207, 0, 15, .8)",
+            "rgba(207, 0, 15, .9)",
+            "rgba(207, 0, 15, 1)",
+          ],
+          "secondary": "#FEFE32",
+          "silver": "#999",
+          "tertiary": "#0147FE",
+          "transparent": "transparent",
+          "white": "#fff",
+          "whites": Array [
+            "rgba(255,255,255,.0125)",
+            "rgba(255,255,255,.025)",
+            "rgba(255,255,255,.05)",
+            "rgba(255,255,255,.1)",
+            "rgba(255,255,255,.2)",
+            "rgba(255,255,255,.3)",
+            "rgba(255,255,255,.4)",
+            "rgba(255,255,255,.5)",
+            "rgba(255,255,255,.6)",
+            "rgba(255,255,255,.7)",
+            "rgba(255,255,255,.8)",
+            "rgba(255,255,255,.9)",
+            "rgba(255,255,255,1)",
+          ],
+          "yellow": "#FEFE32",
+          "yellows": Array [
+            "rgba(245, 229, 27, .0125)",
+            "rgba(245, 229, 27, .025)",
+            "rgba(245, 229, 27, .05)",
+            "rgba(245, 229, 27, .1)",
+            "rgba(245, 229, 27, .2)",
+            "rgba(245, 229, 27, .3)",
+            "rgba(245, 229, 27, .4)",
+            "rgba(245, 229, 27, .5)",
+            "rgba(245, 229, 27, .6)",
+            "rgba(245, 229, 27, .7)",
+            "rgba(245, 229, 27, .8)",
+            "rgba(245, 229, 27, .9)",
+            "rgba(245, 229, 27, 1)",
+          ],
+        },
+        "fontSizes": Array [
+          0,
+          "1.2em",
+          "1.6em",
+          "2em",
+          "2.4em",
+        ],
+        "fontSizesModule": Array [
+          0,
+          "1rem",
+          "2rem",
+          "3rem",
+          "4rem",
+        ],
+        "fontWeights": Array [
+          100,
+          200,
+          300,
+          400,
+          500,
+          600,
+          700,
+          800,
+          900,
+        ],
+        "letterSpacings": Object {
+          "mega": "0.25em",
+          "normal": "normal",
+          "tight": "-0.05em",
+          "tracked": "0.1em",
+        },
+        "lineHeights": Object {
+          "condensed": 1.25,
+          "condensedUltra": 1.5,
+          "default": 1,
+        },
+        "radii": Array [
+          "0px",
+          "50px",
+          "25px",
+          "15px",
+          "9999px",
+        ],
+        "sizes": Array [
+          "0%",
+          "20%",
+          "25%",
+          "33%",
+          "50%",
+          "100%",
+        ],
+        "space": Array [
+          0,
+          "1em",
+          "2em",
+          "3em",
+          "4em",
+        ],
+        "zIndices": Array [
+          0,
+          1,
+          5,
+          10,
+          25,
+          50,
+          100,
+        ],
+      }
+    }
+  >
+    <Styled(Styled(Component))
+      color="primary"
+      fontSize={
+        Array [
+          4,
+        ]
+      }
+      fontWeight="light"
+      lineHeight="condensed"
+      margin={
+        Array [
+          2,
+        ]
+      }
+      width={
+        Array [
+          3,
+        ]
+      }
+    >
+      <Component
+        className="c0"
+        color="primary"
+        fontSize={
+          Array [
+            4,
+          ]
+        }
+        fontWeight="light"
+        isA="div"
+        lineHeight="condensed"
+        margin={
+          Array [
+            2,
+          ]
+        }
+        width={
+          Array [
+            3,
+          ]
+        }
+      >
+        <div
+          className="c0"
+        />
+      </Component>
+    </Styled(Styled(Component))>
+  </ThemeProvider>
+</j>
+`;
+
+exports[`theme responsive styles applys appropriate styling at less than 544px 1`] = `
+.c0 {
+  box-sizing: border-box;
+  min-width: 0;
+  font-size: 1rem;
+}
+
+.c1 {
+  box-sizing: border-box;
+  min-width: 0;
+  margin-left: 1em;
+  margin-right: 1em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.c2 {
+  box-sizing: border-box;
+  min-width: 0;
+  font-size: 1.2em;
+  line-height: 1;
+  -webkit-letter-spacing: normal;
+  -moz-letter-spacing: normal;
+  -ms-letter-spacing: normal;
+  letter-spacing: normal;
+}
+
+@media screen and (min-width:544px) {
+  .c0 {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (min-width:768px) {
+  .c0 {
+    font-size: 3rem;
+  }
+}
+
+@media screen and (min-width:1012px) {
+  .c0 {
+    font-size: 4rem;
+  }
+}
+
+@media screen and (min-width:1280px) {
+  .c0 {
+    font-size: 5rem;
+  }
+}
+
+@media screen and (min-width:544px) {
+  .c1 {
+    margin-left: 2em;
+    margin-right: 2em;
+  }
+}
+
+@media screen and (min-width:768px) {
+  .c1 {
+    margin-left: 3em;
+    margin-right: 3em;
+    padding-top: 2em;
+    padding-bottom: 2em;
+  }
+}
+
+@media screen and (min-width:1012px) {
+
+}
+
+@media screen and (min-width:1280px) {
+  .c1 {
+    padding-top: 3em;
+    padding-bottom: 3em;
+  }
+}
+
+@media screen and (min-width:544px) {
+  .c2 {
+    font-size: 1.6em;
+    line-height: 1.25;
+  }
+}
+
+@media screen and (min-width:768px) {
+  .c2 {
+    font-size: 2em;
+    line-height: 1.5;
+  }
+}
+
+@media screen and (min-width:1012px) {
+  .c2 {
+    font-size: 2.4em;
+    -webkit-letter-spacing: -0.05em;
+    -moz-letter-spacing: -0.05em;
+    -ms-letter-spacing: -0.05em;
+    letter-spacing: -0.05em;
+  }
+}
+
+<j>
+  <ThemeProvider
+    theme={
+      Object {
+        "borders": Array [
+          "1px solid black",
+          "2px solid black",
+        ],
+        "boxShadows": Array [
+          "0 0 2px 0 rgba(0,0,0,.08),0 24px 24px 0 rgba(0,0,0,0.16)",
+          "0 0 2px 0 rgba(0,0,0,.08),0 12px 12px 0 rgba(0,0,0,0.16)",
+          "0 0 2px 0 rgba(0,0,0,.08),0 4px 8px 0 rgba(0,0,0,0.16)",
+          "0 0 2px 0 rgba(0,0,0,.08),0 2px 4px 0 rgba(0,0,0,0.16)",
+        ],
+        "breakpoints": Array [
+          "544px",
+          "768px",
+          "1012px",
+          "1280px",
+        ],
+        "colors": Object {
+          "black": "#000",
+          "blacks": Array [
+            "rgba(0,0,0,.0125)",
+            "rgba(0,0,0,.025)",
+            "rgba(0,0,0,.05)",
+            "rgba(0,0,0,.1)",
+            "rgba(0,0,0,.2)",
+            "rgba(0,0,0,.3)",
+            "rgba(0,0,0,.4)",
+            "rgba(0,0,0,.5)",
+            "rgba(0,0,0,.6)",
+            "rgba(0,0,0,.7)",
+            "rgba(0,0,0,.8)",
+            "rgba(0,0,0,.9)",
+            "rgba(0,0,0,1)",
+          ],
+          "blue": "#0147FE",
+          "blues": Array [
+            "rgba(31, 58, 147, .0125)",
+            "rgba(31, 58, 147, .025)",
+            "rgba(31, 58, 147, .05)",
+            "rgba(31, 58, 147, .1)",
+            "rgba(31, 58, 147, .2)",
+            "rgba(31, 58, 147, .3)",
+            "rgba(31, 58, 147, .4)",
+            "rgba(31, 58, 147, .5)",
+            "rgba(31, 58, 147, .6)",
+            "rgba(31, 58, 147, .7)",
+            "rgba(31, 58, 147, .8)",
+            "rgba(31, 58, 147, .9)",
+            "rgba(31, 58, 147, 1)",
+          ],
+          "dark-gray": "#333",
+          "gray": "#777",
+          "grays": Array [
+            "rgba(46, 49, 49, .0125)",
+            "rgba(46, 49, 49, .025)",
+            "rgba(46, 49, 49, .05)",
+            "rgba(46, 49, 49, .1)",
+            "rgba(46, 49, 49, .2)",
+            "rgba(46, 49, 49, .3)",
+            "rgba(46, 49, 49, .4)",
+            "rgba(46, 49, 49, .5)",
+            "rgba(46, 49, 49, .6)",
+            "rgba(46, 49, 49, .7)",
+            "rgba(46, 49, 49, .8)",
+            "rgba(46, 49, 49, .9)",
+            "rgba(46, 49, 49, 1)",
+          ],
+          "green": "#1e824c",
+          "greens": Array [
+            "rgba(30, 130, 76, .0125)",
+            "rgba(30, 130, 76, .025)",
+            "rgba(30, 130, 76, .05)",
+            "rgba(30, 130, 76, .1)",
+            "rgba(30, 130, 76, .2)",
+            "rgba(30, 130, 76, .3)",
+            "rgba(30, 130, 76, .4)",
+            "rgba(30, 130, 76, .5)",
+            "rgba(30, 130, 76, .6)",
+            "rgba(30, 130, 76, .7)",
+            "rgba(30, 130, 76, .8)",
+            "rgba(30, 130, 76, .9)",
+            "rgba(30, 130, 76, 1)",
+          ],
+          "light-gray": "#eee",
+          "light-silver": "#aaa",
+          "mid-gray": "#555",
+          "moon-gray": "#ccc",
+          "near-black": "#111",
+          "near-white": "#f4f4f4",
+          "orange": "#f89406",
+          "oranges": Array [
+            "rgba(248, 148, 6, .0125)",
+            "rgba(248, 148, 6, .025)",
+            "rgba(248, 148, 6, .05)",
+            "rgba(248, 148, 6, .1)",
+            "rgba(248, 148, 6, .2)",
+            "rgba(248, 148, 6, .3)",
+            "rgba(248, 148, 6, .4)",
+            "rgba(248, 148, 6, .5)",
+            "rgba(248, 148, 6, .6)",
+            "rgba(248, 148, 6, .7)",
+            "rgba(248, 148, 6, .8)",
+            "rgba(248, 148, 6, .9)",
+            "rgba(248, 148, 6, 1)",
+          ],
+          "primary": "#FE2711",
+          "purple": "#9a12b3",
+          "purples": Array [
+            "rgba(154, 18, 179, .0125)",
+            "rgba(154, 18, 179, .025)",
+            "rgba(154, 18, 179, .05)",
+            "rgba(154, 18, 179, .1)",
+            "rgba(154, 18, 179, .2)",
+            "rgba(154, 18, 179, .3)",
+            "rgba(154, 18, 179, .4)",
+            "rgba(154, 18, 179, .5)",
+            "rgba(154, 18, 179, .6)",
+            "rgba(154, 18, 179, .7)",
+            "rgba(154, 18, 179, .8)",
+            "rgba(154, 18, 179, .9)",
+            "rgba(154, 18, 179, 1)",
+          ],
+          "red": "#FE2711",
+          "reds": Array [
+            "rgba(207, 0, 15, .0125)",
+            "rgba(207, 0, 15, .025)",
+            "rgba(207, 0, 15, .05)",
+            "rgba(207, 0, 15, .1)",
+            "rgba(207, 0, 15, .2)",
+            "rgba(207, 0, 15, .3)",
+            "rgba(207, 0, 15, .4)",
+            "rgba(207, 0, 15, .5)",
+            "rgba(207, 0, 15, .6)",
+            "rgba(207, 0, 15, .7)",
+            "rgba(207, 0, 15, .8)",
+            "rgba(207, 0, 15, .9)",
+            "rgba(207, 0, 15, 1)",
+          ],
+          "secondary": "#FEFE32",
+          "silver": "#999",
+          "tertiary": "#0147FE",
+          "transparent": "transparent",
+          "white": "#fff",
+          "whites": Array [
+            "rgba(255,255,255,.0125)",
+            "rgba(255,255,255,.025)",
+            "rgba(255,255,255,.05)",
+            "rgba(255,255,255,.1)",
+            "rgba(255,255,255,.2)",
+            "rgba(255,255,255,.3)",
+            "rgba(255,255,255,.4)",
+            "rgba(255,255,255,.5)",
+            "rgba(255,255,255,.6)",
+            "rgba(255,255,255,.7)",
+            "rgba(255,255,255,.8)",
+            "rgba(255,255,255,.9)",
+            "rgba(255,255,255,1)",
+          ],
+          "yellow": "#FEFE32",
+          "yellows": Array [
+            "rgba(245, 229, 27, .0125)",
+            "rgba(245, 229, 27, .025)",
+            "rgba(245, 229, 27, .05)",
+            "rgba(245, 229, 27, .1)",
+            "rgba(245, 229, 27, .2)",
+            "rgba(245, 229, 27, .3)",
+            "rgba(245, 229, 27, .4)",
+            "rgba(245, 229, 27, .5)",
+            "rgba(245, 229, 27, .6)",
+            "rgba(245, 229, 27, .7)",
+            "rgba(245, 229, 27, .8)",
+            "rgba(245, 229, 27, .9)",
+            "rgba(245, 229, 27, 1)",
+          ],
+        },
+        "fontSizes": Array [
+          0,
+          "1.2em",
+          "1.6em",
+          "2em",
+          "2.4em",
+        ],
+        "fontSizesModule": Array [
+          0,
+          "1rem",
+          "2rem",
+          "3rem",
+          "4rem",
+        ],
+        "fontWeights": Array [
+          100,
+          200,
+          300,
+          400,
+          500,
+          600,
+          700,
+          800,
+          900,
+        ],
+        "letterSpacings": Object {
+          "mega": "0.25em",
+          "normal": "normal",
+          "tight": "-0.05em",
+          "tracked": "0.1em",
+        },
+        "lineHeights": Object {
+          "condensed": 1.25,
+          "condensedUltra": 1.5,
+          "default": 1,
+        },
+        "radii": Array [
+          "0px",
+          "50px",
+          "25px",
+          "15px",
+          "9999px",
+        ],
+        "sizes": Array [
+          "0%",
+          "20%",
+          "25%",
+          "33%",
+          "50%",
+          "100%",
+        ],
+        "space": Array [
+          0,
+          "1em",
+          "2em",
+          "3em",
+          "4em",
+        ],
+        "zIndices": Array [
+          0,
+          1,
+          5,
+          10,
+          25,
+          50,
+          100,
+        ],
+      }
+    }
+  >
+    <Styled(Styled(Component))
+      fontSizeModule={
+        Array [
+          1,
+          2,
+          3,
+          4,
+          "5rem",
+        ]
+      }
+      id="font-size-module-responsive"
+    >
+      <Component
+        className="c0"
+        fontSizeModule={
+          Array [
+            1,
+            2,
+            3,
+            4,
+            "5rem",
+          ]
+        }
+        id="font-size-module-responsive"
+        isA="div"
+      >
+        <div
+          className="c0"
+          id="font-size-module-responsive"
+        >
+          <Styled(Styled(Component))
+            className="div-responsive"
+            mx={
+              Array [
+                1,
+                2,
+                3,
+              ]
+            }
+            py={
+              Array [
+                1,
+                null,
+                2,
+                null,
+                3,
+              ]
+            }
+          >
+            <Component
+              className="c1 div-responsive"
+              isA="div"
+              mx={
+                Array [
+                  1,
+                  2,
+                  3,
+                ]
+              }
+              py={
+                Array [
+                  1,
+                  null,
+                  2,
+                  null,
+                  3,
+                ]
+              }
+            >
+              <div
+                className="c1 div-responsive"
+              >
+                <Styled(Styled(Component))
+                  className="paragraph-responsive"
+                  fontSize={
+                    Array [
+                      1,
+                      2,
+                      3,
+                      4,
+                    ]
+                  }
+                  letterSpacing={
+                    Array [
+                      "normal",
+                      "",
+                      null,
+                      "tight",
+                    ]
+                  }
+                  lineHeight={
+                    Array [
+                      "default",
+                      "condensed",
+                      "condensedUltra",
+                    ]
+                  }
+                >
+                  <Component
+                    className="c2 paragraph-responsive"
+                    fontSize={
+                      Array [
+                        1,
+                        2,
+                        3,
+                        4,
+                      ]
+                    }
+                    isA="p"
+                    letterSpacing={
+                      Array [
+                        "normal",
+                        "",
+                        null,
+                        "tight",
+                      ]
+                    }
+                    lineHeight={
+                      Array [
+                        "default",
+                        "condensed",
+                        "condensedUltra",
+                      ]
+                    }
+                  >
+                    <p
+                      className="c2 paragraph-responsive"
+                    />
+                  </Component>
+                </Styled(Styled(Component))>
+              </div>
+            </Component>
+          </Styled(Styled(Component))>
+        </div>
+      </Component>
+    </Styled(Styled(Component))>
+  </ThemeProvider>
+</j>
+`;

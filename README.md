@@ -56,15 +56,9 @@ Optionally styles can be defined and spread onto the component to provide reusab
 
 ## Theming
 
-Theming allow for consistent styling by providing preset scales for various css properites. Theming provides quick responsive design by providing array values that correspond to specified breakpoints.
+Theming allows for consistent styling by providing preset scales for various css properites. Theming provides quick responsive design by providing array values that correspond to specified breakpoints.
 
-See table for theming properties
-
-See default theming option for explanations on theme properties and reference [here](https://github.com/cbryant24/styled-react/blob/master/lib/theme.js)
-
-For detailed guide and philosophy behind theming see [styled-system theming guide](https://styled-system.com/guides/theming)
-
-<small>\*animations currently are not able be included in themeing</small>
+See default theming option for explanations on theme properties and reference [here](https://github.com/cbryant24/styled-react/blob/master/lib/theme/README.md)
 
 ## Global Style
 
@@ -267,111 +261,43 @@ export default Form = props => {
 
 ## Animations/Transitions
 
-ADD WAY TO SPECIFY PREMADE ANIMATION WITH JUST STRING
-LIST OUT ANIMATIONS WITH EXAMPLES 
-### Quick Start
-Styled-React has predefined animations that can be used to quickly add animations to elements
-
-### Custom Animations 
-
 Animations can be defined using the `animation` property and providing an object with the appropriate properties listed below. Note that some properties work in conjuction with only certain types of animation i.e. `duration_in` can only be used if `in` animation is defined, also some properties are required if using a certain type of animation i.e. if using `continuous` animation type then `duration_continuous` property must be defined as well.
-
-- `in`: This property receives an animation keyframe that will be used to animate in the component.
-  - If providing an an animation a `duration_in` property and value must be provided
-- `delay_in`: This property receives an integer and will set the time that the component will take to start being animated. While this time isn't reached, the component will be mounted but will display nothing. If this property is not setted there won't be any delay in for the component to start animating.
-- `duration_in`: This property receives and integer greater than 0 and will set the duration in seconds for the in animation.
-- `continuous`: This property receives an animation keyframe that will be used to animate between in and out (if proceed).
-- `duration_continuous`: This property receives an integer greater than 0 and will set the duration in seconds for the continuous animation.
-- `out`: This property receives an animation keyframe that will be used to animate out the component.
-- `duration_out`: This property receives and integer greater than 0 and will set the duration in seconds for the out animation.
-- `delay_between`: This property receives and integer geater or equals to 0 and will set the time that will wait between the in and out animations.
-- `iteration`: This property receives and integer greater than 0 or the literal 'infinite' and will set the amount of iterations the animation should be doing until it goes out (if it should)
-- `animation_fill_mode`: property accepts `none | forwards | backwards | both | initial | inherit;` if none is provided the default value `none` will be used.
-- `animation_timing_function`: property accepts `linear | ease | ease-in | ease-out | ease-in-out | step-start | step-end | steps(int, start|end) | cubic-bezier(n,n,n,n) | initial | inherit` if none is provided the default value of `ease` will be used.
-- `animation_direction`: property accepts `normal | reverse | alternate | alternate-reverse | initial | inherit` if none is provided the default value of `normal` will be used.
 
 ### In Animation
 
-The `in` animation property receives a plain javascript object that represents the animation keyframes using either the keywords `from` and `to` or using `0%` representation
+The in animation provides animation for elements and components rendering to the screen
 
-When using the `in` animation the `duration_in` property is required as this defines how long it will take for the animation to start until end
+- `in`: This property receives an animation object with properties representing the keyframes that will be used to animate `in` the component.
+- `duration_in`: This property receives an integer greater than 0 and will set the duration in seconds for the `in` animation. Required for using `in` animations
 
-```javascript
-  <Box
-    animation={{
-      in: {
-        from: { opacity: 0 },
-        to: { opacity: 1 }
-      },
-      duration_in: 3
-    }}
-  >
-    Im animating in
-  </Box>
-```
+### Out Animation
 
-Can also be defined using percentages
+The out animation provides animation for elements and components unmounting from the application
 
-```javascript
-  <Box
-    animation={{
-      in: {
-      '0%': { opacity: 0 },
-      '10%': { opacity: .75 },
-      '100%': { opacity: 1 }
-      },
-      duration_in: 3
-    }}
-  >
-    Im animating in
-  </Box>
-```
+- `out`: This property receives an animation keyframe that will be used to animate out the component.
+- `duration_out`: This property receives an integer greater than 0 and will set the duration in seconds for the out animation. Required for using `out` animations
 
-```javascript
-<Box
-  animation={{
-    delay_in: 5,
-    in: FadeAnimations.FadeInBottom,
-    duration_in: 2,
-    out: FadeAnimations.FadeOutTop,
-    duration_out: 1,
-    delay_between: 5
-  }}
->
-  I'm animating
-</Box>
-```
+### Continuous Animation
 
-```javascript
-<Box
-  animation={{
-    continuous: RotateAnimations.RotateCenter,
-    duration_continuous: 3
-  }}
->
-  I'm animating
-</Box>
-```
+The continous animation provides animation for elements that need to continually animate. 
 
-```javascript
-<Box
-  animation={{
-    delay_in: 5,
-    in: FadeAnimations.FadeInBottom,
-    duration_in: 1,
-    continuous: RotateAnimations.RotateInCenter,
-    duration_continuous: 1,
-    out: FadeAnimations.FadeOutTop,
-    duration_out: 1,
-    delay_between: 5,
-    animation_fill_mode: 'forwards'
-  }}
->
-  I'm animating
-</Box>
-```
+- `continuous`: This property receives an animation keyframe that will be used to animate between in and out.
+- `duration_continuous`: This property receives an integer greater than 0 and will set the duration in seconds between each animation.
 
-### Custom Animations
+### Animation Timing Helpers
+
+The `delay_between` and `iteration` properties provide timing for `in`, `out`, and `continuous` animations. The `delay_in` property can be used with `in` and `continuous`. The `iteration` property provides total number of animation counts and can be used only with the `in` and `out` animation
+
+- `delay_between`: This property receives an integer geater or equal to 0 and will set the time that will wait between the `in` and `out` animations.
+- `iteration`: This property receives an integer greater than 0 which will set the amount of iterations the animation should perform. This can be used only with the `in` and `out` animations
+- `delay_in`: This property receives an integer and will set the time that the component will take to take before the animation begins. While this time isn't reached, the component will be mounted but will not animate. If this property is not set there will not be any delay for the `in` animation
+
+### Animation CSS Properties
+
+The properties `animation_fill_mode, animation_timing_function, animation_direction` operate exactly like normal css animation properties 
+- `animation_fill_mode`: property accepts `none | forwards | backwards | both | initial | inherit;` if none is provided the default value `none` will be used.
+- `animation_timing_function`: property accepts `linear | ease | ease-in | ease-out | ease-in-out | step-start | step-end | steps(int, start|end) | cubic-bezier(n,n,n,n) | initial | inherit` if none is provided the default value of `ease` will be used.
+- `animation_direction`: property accepts `normal | reverse | alternate | alternate-reverse | initial | inherit` if none is provided the default value of `normal` will be used.
 
 To create a custom pass an object representing a keyframes definition. The animation property uses css actual names so properites with a hyphen need to follow the same style in this object.
 
@@ -390,22 +316,32 @@ const customAnimation = {
   duration_in: 3
 };
 
-<Box animation={animation}>I'm animating</Box>;
+<Box animation={animation}>animating div</Box>;
 ```
+
+Custom animations frames can also be defined using the percentage values also
+
 ```javascript
-  const continousAnimation = {
-    continuous: {
-      from: { opacity: 0 },
-      to: { opacity: 1 }
-    },
-    duration_continuous: 1,
-    animation_direction: 'alternate-reverse'
-  }
+const customAnimation = {
+  in: {
+    '0%': { opacity: 0 },
+    '75%': { opacity: .5 },
+    '100%': { opacity: 1 }
+  },
+  delay_between: 4,
+  out: {
+    '0%': { 'background-color': 'red' },
+    '80%': { 'background-color': 'yellow' }
+    '100%': { }
+  },
+  duration_out: 3,
+  duration_in: 3
+};
 
-  <Box animation={animation}>I'm animating</Box>;
+<Box animation={animation}>animating div</Box>;
 ```
 
-To animatate multiple properties each property needs to be defined separatly seperately
+For more details about creating custom animations [see additional documentation here](animations_readme.md)
 
 ## Psuedo Classes/Elements
 
@@ -495,160 +431,4 @@ To change the `Box` component to different element types i.e. `<span></span> <p>
 
 ## Theme
 
-To create a theme provide a `theme` object and prop for the `ThemeProvider`. See [here](https://github.com/cbryant24/styled-react/blob/master/lib/theme.js) for example/default theme
-
-```javascript
-const breakpoints = ['544px', '768px', '1012px', '1280px'];
-export const sizes = ['0%', '100%', '75%', '50%', '25%'];
-const colors = {
-  black: '#000000',
-  white: '#ffffff',
-  red: '#FF0000'
-};
-const fontSizes = [0, '1.6em', '1.4em', '1.2em', '.9em', '.8em'];
-
-const theme = {
-  breakpoints,
-  sizes,
-  colors,
-  fontSizes
-};
-
-import { ThemeProvider } from 'styled-react';
-
-ReactDOM.render(
-  <ThemeProvider theme={theme}>
-    <App />
-  </ThemeProvider>,
-  document.getElementById('root')
-);
-```
-
-### Passing Theme Names
-
-Defined styles in the theme can be used on components by using the `themeStyles` prop and passing either a string representing the object name or an array of strings to provide multiple styles defined in the theme.
-
-Note when using an array any shared properties will be overriden by the last item in the array.
-
-```javascript
-
-const squareButton = {
-  display: "inline-block",
-  boxShadow: "none",
-  backgroundColor: "transparent",
-  textDecoration: "none",
-  transition: "box-shadow 0.125s ease-out 0s",
-  borderWidth: "2px",
-  borderStyle: "solid",
-  borderColor: "currentcolor",
-  px: [1, 2],
-  py: [1, 2],
-}
-
-const largeButton = {
-  px: [2, 3],
-  py: [2, 3],
-  color: 'yellow.2'
-}
-
-const theme = {
-  squareButton,
-  largeButton
-}
-
-const Buttons = (props) => {
-  return (
-    <Box
-      isA="button"
-      type='text'
-      themeStyle="squareButton"
-    >
-      I'm a square button style
-    </Box>
-    <Box
-      isA="button"
-      type='text'
-      themeStyle={["squareButton", "largeButton"]}
-    >
-      I'm a large square button style
-    </Box>
-  )
-}
-```
-
-or
-
-```javascript
-<Button
-  themeStyle={['buttonSmall', 'marginSmall']}
-  remove={['color', 'margin']}
-  color="yellow"
-  margin="2em"
->
-  Click Me
-</Button>
-```
-
-### Remove Prop
-
-If passing a theme style and need to remove certain styles from the theme style use the `remove` and pass a `string` with the name of the camelCase css property or array or camelCase css properties of styles to remove
-
-```javascript
-<Button
-  themeStyle={['buttonSmall', 'marginSmall']}
-  remove="color"
-  color="yellow"
->
-  Click Me
-</Button>
-```
-
-### Theme Names and Keys
-
-For styles defined in the theme and passed as a string or an array the following values can be used with your theme values
-
-| Property            | Theme Key      |
-| ------------------- | -------------- |
-| fontFamily          | fonts          |
-| fontSize            | fontSizes      |
-| fontWeight          | fontWeights    |
-| lineHeight          | lineHeights    |
-| letterSpacing       | letterSpacings |
-| color               | colors         |
-| backgroundColor, bg | colors         |
-| margin,m            | space          |
-| marginTop, mt       | space          |
-| marginRight, mr     | space          |
-| marginBottom, mb    | space          |
-| marginLeft, ml      | space          |
-| marginX, mx         | space          |
-| marginY, my         | space          |
-| padding, p          | space          |
-| paddingTop, pt      | space          |
-| paddingRight, pr    | space          |
-| paddingBottom       | space          |
-| paddingLeft, pl     | space          |
-| paddingX, px        | space          |
-| paddingY, py        | space          |
-| top                 | space          |
-| bottom              | space          |
-| left                | space          |
-| right               | space          |
-| border              | borders        |
-| borderTop           | borders        |
-| borderBottom        | borders        |
-| borderLeft          | borders        |
-| borderColor         | colors         |
-| borderWidth         | borderWidths   |
-| borderStyle         | borderStyles   |
-| borderRadius        | radii          |
-| boxShadow           | shadows        |
-| textShadow          | shadows        |
-| zIndex              | zIndices       |
-| width               | sizes          |
-| minWidth            | sizes          |
-| maxWidth            | sizes          |
-| height              | sizes          |
-| minHeight           | sizes          |
-| maxHeight           | sizes          |
-| size                | sizes          |
+Theming can be used to restrict css style rules and provide easy to use responsive design. A default theme is provided if none is provided. 

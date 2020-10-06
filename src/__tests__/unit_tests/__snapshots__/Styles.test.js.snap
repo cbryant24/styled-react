@@ -1,6 +1,59 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`applied styles animation has all animation css rules 1`] = `
+exports[`applied styles animations displays animation using the "continuous" type 1`] = `
+.c0 {
+  box-sizing: border-box;
+  min-width: 0;
+  -webkit-animation-name: iHtkXv;
+  animation-name: iHtkXv;
+  -webkit-animation-duration: 4s;
+  animation-duration: 4s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-play-state: running;
+  animation-play-state: running;
+}
+
+<Styled(Styled(Component))
+  animation={
+    Object {
+      "continuous": Object {
+        "from": Object {
+          "opacity": 0,
+        },
+        "to": Object {
+          "opacity": 1,
+        },
+      },
+      "duration_continuous": 4,
+    }
+  }
+>
+  <Component
+    animation={
+      Object {
+        "continuous": Object {
+          "from": Object {
+            "opacity": 0,
+          },
+          "to": Object {
+            "opacity": 1,
+          },
+        },
+        "duration_continuous": 4,
+      }
+    }
+    className="c0"
+    isA="div"
+  >
+    <div
+      className="c0"
+    />
+  </Component>
+</Styled(Styled(Component))>
+`;
+
+exports[`applied styles animations displays animation using the "in" type 1`] = `
 .c0 {
   box-sizing: border-box;
   min-width: 0;
@@ -8,6 +61,8 @@ exports[`applied styles animation has all animation css rules 1`] = `
   animation-name: iHtkXv;
   -webkit-animation-duration: 3s;
   animation-duration: 3s;
+  -webkit-animation-iteration-count: 2;
+  animation-iteration-count: 2;
   -webkit-animation-play-state: running;
   animation-play-state: running;
 }
@@ -24,6 +79,7 @@ exports[`applied styles animation has all animation css rules 1`] = `
           "opacity": 1,
         },
       },
+      "iteration": 2,
     }
   }
 >
@@ -32,6 +88,62 @@ exports[`applied styles animation has all animation css rules 1`] = `
       Object {
         "duration_in": 3,
         "in": Object {
+          "from": Object {
+            "opacity": 0,
+          },
+          "to": Object {
+            "opacity": 1,
+          },
+        },
+        "iteration": 2,
+      }
+    }
+    className="c0"
+    isA="div"
+  >
+    <div
+      className="c0"
+    />
+  </Component>
+</Styled(Styled(Component))>
+`;
+
+exports[`applied styles animations displays animation using the "out" type 1`] = `
+.c0 {
+  box-sizing: border-box;
+  min-width: 0;
+  -webkit-animation-name: iHtkXv;
+  animation-name: iHtkXv;
+  -webkit-animation-duration: 4s;
+  animation-duration: 4s;
+  -webkit-animation-iteration-count: 5;
+  animation-iteration-count: 5;
+  -webkit-animation-play-state: running;
+  animation-play-state: running;
+}
+
+<Styled(Styled(Component))
+  animation={
+    Object {
+      "duration_out": 4,
+      "iteration": 5,
+      "out": Object {
+        "from": Object {
+          "opacity": 0,
+        },
+        "to": Object {
+          "opacity": 1,
+        },
+      },
+    }
+  }
+>
+  <Component
+    animation={
+      Object {
+        "duration_out": 4,
+        "iteration": 5,
+        "out": Object {
           "from": Object {
             "opacity": 0,
           },
@@ -51,7 +163,82 @@ exports[`applied styles animation has all animation css rules 1`] = `
 </Styled(Styled(Component))>
 `;
 
-exports[`applied styles has a div with margin 50% 1`] = `
+exports[`applied styles animations has seperate animations when using the "delay_between" with "in" and "out" animations 1`] = `
+.c0 {
+  box-sizing: border-box;
+  min-width: 0;
+  -webkit-animation-name: iHtkXv;
+  animation-name: iHtkXv;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-play-state: running;
+  animation-play-state: running;
+}
+
+<Styled(Styled(Component))
+  animation={
+    Object {
+      "animation_fill_mode": "forwards",
+      "delay_between": 4,
+      "duration_in": 2,
+      "duration_out": 1,
+      "in": Object {
+        "from": Object {
+          "opacity": 0,
+        },
+        "to": Object {
+          "opacity": 1,
+        },
+      },
+      "out": Object {
+        "from": Object {
+          "background-color": "red",
+        },
+        "to": Object {
+          "background-color": "yellow",
+        },
+      },
+    }
+  }
+>
+  <Component
+    animation={
+      Object {
+        "animation_fill_mode": "forwards",
+        "delay_between": 4,
+        "duration_in": 2,
+        "duration_out": 1,
+        "in": Object {
+          "from": Object {
+            "opacity": 0,
+          },
+          "to": Object {
+            "opacity": 1,
+          },
+        },
+        "out": Object {
+          "from": Object {
+            "background-color": "red",
+          },
+          "to": Object {
+            "background-color": "yellow",
+          },
+        },
+      }
+    }
+    className="c0"
+    isA="div"
+  >
+    <div
+      className="c0"
+    />
+  </Component>
+</Styled(Styled(Component))>
+`;
+
+exports[`applied styles has a div with margin 75% 1`] = `
 .c0 {
   box-sizing: border-box;
   min-width: 0;
