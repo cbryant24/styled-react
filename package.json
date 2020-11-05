@@ -1,8 +1,8 @@
 {
   "name": "@cbryant24/styled-react",
-  "version": "1.0.0",
-  "description": "Styles can be applied to components by writing css styles directly as props",
-  "main": "dist/index.js",
+  "version": "0.0.40",
+  "description": "CSS Styles can be applied to components by writing css styles as props or themeing",
+  "main": "dist/main.js",
   "keywords": [
     "react",
     "animated",
@@ -16,50 +16,89 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --mode development --config-name styled-react-dev",
-    "test": "jest --config ./jest.config.json",
+    "test": "jest",
     "test:watch": "npm run test -- --watch",
-    "build": "webpack --config-name styled-react-npm --mode production"
+    "build": "webpack --config-name styled-react-npm --mode production",
+    "watch:production": "webpack --config-name styled-react-npm --mode production --watch",
+    "prepublishOnly": "npm run build",
+    "lint:css": "stylelint './src/**/*.js'"
+  },
+  "dependencies": {
+    "@styled-system/css": "^5.0.23",
+    "@styled-system/theme-get": "^5.1.1",
+    "@types/styled-system": "^5.0.1",
+    "styled-components": "^5.1.1",
+    "styled-system": "^5.0.12"
   },
   "peerDependencies": {
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "styled-components": "^5.0.0",
-    "styled-system": "^5.0.12",
     "lodash": "^4.17.10",
-    "clean-element": "^1.0.0",
-    "@styled-system/css": "^5.0.23",
-    "@styled-system/theme-get": "^5.1.1",
-    "@types/styled-system": "^5.0.1"
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.3",
     "@babel/core": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
     "@babel/preset-react": "^7.8.3",
+    "@cbryant24/styled-react-form": "0.0.31",
     "@styled-system/css": "^5.0.23",
     "@styled-system/theme-get": "^5.1.1",
     "@types/styled-system": "^5.0.1",
-    "axios": "^0.19.2",
     "babel-jest": "^25.1.0",
     "babel-loader": "^8.0.6",
+    "babel-polyfill": "^6.26.0",
     "clean-element": "^1.0.0",
     "css-loader": "^3.4.2",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.3",
+    "enzyme-to-json": "^3.5.0",
     "file-loader": "^5.0.2",
     "gh-pages": "^2.2.0",
     "html-webpack-plugin": "^3.2.0",
     "jest": "^25.1.0",
-    "jest-styled-components": "^7.0.0",
+    "jest-emotion": "^10.0.32",
+    "jest-styled-components": "^7.0.3",
     "lodash": "^4.17.10",
     "microbundle": "^0.11.0",
-    "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-test-renderer": "^16.12.0",
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2",
+    "react-swipeable": "^5.5.1",
+    "react-test-renderer": "^16.13.1",
     "style-loader": "^1.1.3",
-    "styled-components": "^5.0.0",
     "styled-system": "^5.0.12",
+    "stylelint": "^13.6.1",
+    "stylelint-config-recommended": "^3.0.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.10.0",
+    "waait": "^1.0.5",
     "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10",
+    "webpack-bundle-analyzer": "^3.8.0",
+    "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.1"
+  },
+  "jest": {
+    "modulePaths": [
+      "/shared/vendor/modules"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/unit_tests/*.{js,jsx,ts,tsx}"
+    ],
+    "moduleNameMapper": {
+      "^@cbryant24/styled-react(.*)$": "<rootDir>/dist/main.js"
+    },
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/setupTests.js"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   }
 }
