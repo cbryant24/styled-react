@@ -35,8 +35,8 @@ const App = () => {
         {/* <Div width="20vw" height="20vh" bg="red" animation={customAnimation} textTransform="uppercase" display="flex" justifyContent="center" alignItems="center">Hello World</Div> */}
         {/* <Div themeStyle={["newAnimationStyle", "marginLarge"]}>Goodbye World</Div> */}
         <Div
-          fontSizeModule={[2,null,3]}
-          mx={[1,2,3]}
+          fontSizeModule={[1,2,3,4]}
+          mx={[1,2,3,4]}
           py={[1,null,2,null,3]}
         >
           Color Changed

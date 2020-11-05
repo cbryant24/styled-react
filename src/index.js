@@ -29,13 +29,13 @@ const newThemeVals = {
   colors: {
     primary: '#FFD300'
   },
-  breakpoints: ['230px', '34em', '43rem', '900px']
+  breakpoints: ['30em', '40em', '50em', '60em']
 }
 
 ReactDOM.render(
   <Router>
     <ModalProvider>
-      <ThemeProvider>
+      <ThemeProvider theme={theme}>
         <App />
       </ThemeProvider>
     </ModalProvider>

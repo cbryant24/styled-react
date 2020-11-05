@@ -32,7 +32,7 @@ const addAliases = (arr, aliases) =>
   );
 
 const aliases = ['sm', 'md', 'lg', 'xl'];
-const breakpoints = ['544px', '768px', '1012px', '1280px'];
+const breakpoints = ['40em', '45em', '50em', '60em'];
 
 // const mediaQueries = {
 //   ...breakpoints.map(createMediaQuery),

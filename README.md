@@ -27,7 +27,7 @@ The following html elements are exported for use in component rendering and styl
 Styles can be applied to components by writing css styles directly as props
 
 ```javascript
-import { Div } from '@cbryant24/styled-react';
+import { Div } from "@cbryant24/styled-react";
 
 function App() {
   return (
@@ -44,13 +44,13 @@ Optionally styles can be defined and spread onto the component to provide reusab
   const styles = {
     width: [1, 2],
     fontSize: [1, 2],
-    color: 'black',
-    border: '1px solid black'
+    color: "black",
+    border: "1px solid black"
   }
   <Box
     {...styles}
   >
-    I'm a styled div
+    Im a styled div
   </Box>
 ```
 
@@ -65,7 +65,7 @@ See default theming option for explanations on theme properties and reference [h
 Global styling can be done by importing the `createGlobalStyle` function and using tagged template literals to set global css values.
 
 ```javascript
-import { createGlobalStyle } from '@cbryant24/styled-react';
+import { createGlobalStyle } from "@cbryant24/styled-react";
 
 const GlobalStyle = createGlobalStyle`
   *,
@@ -100,8 +100,8 @@ An `a` tag is currently exported for general linking.
 Currently Styled-React is setup to use `react-router`. To create a link provide the exported `react-router-dom` `Link` to the `Box` element exported from the Styled-React library
 
 ```javascript
-import { Link } from 'react-router-dom';
-import { Div, Box } from '@cbryant24/styled-react';
+import { Link } from "react-router-dom";
+import { Div, Box } from "@cbryant24/styled-react";
 
 const App = () => {
 
@@ -109,7 +109,7 @@ const App = () => {
     <Div width="20rem" height="20rem" backgroundColor="black" fontSize={[1]}>
       <Box
         isA={Link}
-        themeStyle={'linkStyle'}
+        themeStyle={"linkStyle"}
         fontSize={[2]}
         color="white"
         to="/home"
@@ -123,15 +123,15 @@ const App = () => {
 
 ### Field
 
-The field component creates a group of elements containing label, input, and errors. The element takes the following props for the `data` props to set the label, placeholder, name attribute, and any data for the input to prefill or autoselect.
+The field component creates a group of elements containing label, input, and errors. The element uses the prop `data` to set the label, placeholder, name attribute, and any data for the input to prefill or autoselect.
 
 | Prop        | Type   | Description                                                                |
 | ----------- | ------ | -------------------------------------------------------------------------- |
 | name        | string | used for `name` attribute on `input` and `for` attribute on label          |
-| type        | string | determine which input type. _ email _ text _ password _ textarea \* select |
+| type        | string | determine which input type. email | text | password | textarea | select    |
 | placeholder | string | text to be used in the input for placeholder text                          |
 | label       | string | text to be used for the label text value                                   |
-| inputData   | varies | see list of options available for `inputData`                              |
+| inputData   | varies | [see list of options](#inputData) available for `inputData`                |
 
 #### inputData
 
@@ -154,34 +154,34 @@ The `Field` component takes a prop `inputStyle` object with css list properties
 If using a `theme` with the `ThemeProvider` wrapper the prop `fieldStyle` and `inputStyle` can take the `string` name reference to the theme object or array of strings referencing theme styles.
 
 ```javascript
-import { Field, Form } from '@cbryant24/styled-react';
+import { Field, Form } from "@cbryant24/styled-react";
 
 const App = () => {
   const fieldStyle = {
-      width: '75%',
-      maxHeight: '11rem',
-      justifyContent: 'space-between',
-      flexDirection: 'column'
+      width: "75%",
+      maxHeight: "11rem",
+      justifyContent: "space-between",
+      flexDirection: "column"
     },
     inputStyle = {
-      background: 'white',
-      color: 'black',
-      borderRadius: '1em',
-      minHeight: '2.5em'
+      background: "white",
+      color: "black",
+      borderRadius: "1em",
+      minHeight: "2.5em"
     };
 
   return (
     <Form width="30vw" height="30vh" backgroundColor="red" color="black">
       <Field
         data={{
-          name: 'field-test',
-          type: 'select',
+          name: "field-test",
+          type: "select",
           inputData: {
-            value: 'id',
-            display: 'name',
+            value: "id",
+            display: "name",
             options: [
-              { name: 'Dev', id: 2 },
-              { name: 'Mac', id: '3' }
+              { name: "Dev", id: 2 },
+              { name: "Mac", id: "3" }
             ]
           }
         }}
@@ -193,7 +193,7 @@ const App = () => {
 };
 ```
 
-The input can't be styled but takes on the styling of the parent field styled with `inputStyle`
+The input can"t be styled but takes on the styling of the parent field styled with `inputStyle`
 
 note: `display` property is set to flex for the field element and cannot be changed
 
@@ -209,11 +209,11 @@ export const Input = (
   />
 );
 
-import { addProps } from 'styled-react;
-import { Input } from './Input';
+import { addProps } from "styled-react"
+import { Input } from "./Input";
 
 export default Form = (props) => {
-  const InputPassword = addProps(Input, { type: 'password'});
+  const InputPassword = addProps(Input, { type: "password"});
 
   return (
     <div>
@@ -225,11 +225,11 @@ export default Form = (props) => {
 
 Adding props to multiple elements can be done by passing an array of styled-system Components
 
-import { Input } from './Input';
+import { Input } from "./Input";
 
 ```javascript
 export default Form = props => {
-  const InputPassword = addProps([Input, Input], { type: 'password' });
+  const InputPassword = addProps([Input, Input], { type: "password" });
 
   return <div>{InputPassword}</div>;
 };
@@ -238,26 +238,17 @@ export default Form = props => {
 Adding props to multiple elements with varying props can be done by passing an array of styled-system Components and an array of props. Note that the props applied to each is done in a one to one application
 
 ```javascript
-import { Input } from './Input';
+import { Input } from "./Input";
 
 export default Form = props => {
   const Inputs = addProps(
     [Input, Input],
-    [{ type: 'text' }, { type: 'password' }]
+    [{ type: "text" }, { type: "password" }]
   );
 
   return <div>{Inputs}</div>;
 };
 ```
-
-## Input
-
-| Props                                                 | CSS Style | Value |
-| ----------------------------------------------------- | :-------: | :---- |
-| placeHolderColor ::placeholder -> {color} [rgba, hex] |
-| focusOutline :focus { outline } string                |
-| focusBorderColor :focus { boder } string              |
-| focusBoxShadow :focus { box-shadow } string           |
 
 ## Animations/Transitions
 
@@ -290,7 +281,7 @@ The `delay_between` and `iteration` properties provide timing for `in`, `out`, a
 
 - `delay_between`: This property receives an integer geater or equal to 0 and will set the time that will wait between the `in` and `out` animations.
 - `iteration`: This property receives an integer greater than 0 which will set the amount of iterations the animation should perform. This can be used only with the `in` and `out` animations
-- `delay_in`: This property receives an integer and will set the time that the component will take to take before the animation begins. While this time isn't reached, the component will be mounted but will not animate. If this property is not set there will not be any delay for the `in` animation
+- `delay_in`: This property receives an integer and will set the time that the component will take to take before the animation begins. While this time isn"t reached, the component will be mounted but will not animate. If this property is not set there will not be any delay for the `in` animation
 
 ### Animation CSS Properties
 
@@ -303,17 +294,17 @@ To create a custom pass an object representing a keyframes definition. The anima
 
 ```javascript
 const customAnimation = {
+  duration_in: 3
   in: {
     from: { opacity: 0 },
     to: { opacity: 1 }
   },
   delay_between: 4,
   out: {
-    from: { 'background-color': 'red' },
-    to: { 'background-color': 'yellow' }
+    from: { "background-color": "red" },
+    to: { "background-color": "yellow" }
   },
   duration_out: 3,
-  duration_in: 3
 };
 
 <Box animation={animation}>animating div</Box>;
@@ -323,19 +314,19 @@ Custom animations frames can also be defined using the percentage values also
 
 ```javascript
 const customAnimation = {
+  duration_in: 3
   in: {
-    '0%': { opacity: 0 },
-    '75%': { opacity: .5 },
-    '100%': { opacity: 1 }
+    "0%": { opacity: 0 },
+    "75%": { opacity: .5 },
+    "100%": { opacity: 1 }
   },
   delay_between: 4,
   out: {
-    '0%': { 'background-color': 'red' },
-    '80%': { 'background-color': 'yellow' }
-    '100%': { }
+    "0%": { "background-color": "red" },
+    "80%": { "background-color": "yellow" }
+    "100%": { }
   },
   duration_out: 3,
-  duration_in: 3
 };
 
 <Box animation={animation}>animating div</Box>;
@@ -348,14 +339,14 @@ For more details about creating custom animations [see additional documentation 
 The pseudo classes `active, focus, hover, lang, link, visited` and pseudo elements `after, before, first-letter, first-line, selection` can be used to further style elments. Include the keyword `pseudo` and pass an object using the appropriate pseudo name to style.
 
 ```javascript
-<Box pseudo hover={{ fontSize: [1, 2], color: 'blue.1' }}>
+<Box pseudo hover={{ fontSize: [1, 2], color: "blue.1" }}>
   I am a pseudo element
 </Box>
 ```
 
 ## Transitions
 
-Transitions can be added for the following states `hover, focus, & active` you can add a transition by either adding the pseudo class as instructed to [here](#Psuedo-Classes/Elements) then define the transition in the `transition` property
+Transitions can be added for the following states `hover, focus, & active` you can add a transition by adding the pseudo class as instructed to [here](#Psuedo-Classes/Elements) then define the transition in the `transition` property
 
 ```javascript
 <BoxPseudo
@@ -373,21 +364,20 @@ To use a styled-react-modal import both the `ModalProvider, StyledModal` compone
 
 To style the Modal Background pass to the prop `modalBackgroundStyle` an object of camelCase css properties or if using themeimg an object with the property `themeStyle` with a string or array of strings corresponding to the theme name
 
-The props `modalBackgroundStyle, isOpen, onBackgroundClick, onEscapeKeydown, allowScroll, beforeOpen, afterOpen, beforeClose, afterClose`
+The Modal takes the following props:
 
-`modalBackgroundStyle`: `object` of camelCase css properties if using theming use property `themeStyle` with corresponding theme value
-`isOpen`: A `boolean` that indicates whether the modal is to be open or closed
-`onBackgroundClick`: A `function` that is invoked when the modal background is clicked
-`onEscapeKeydown`: A `function` that is invoked when the escape key is pressed while the modal is open
-`allowScroll`: A `boolean` when `true`, scrolling in the document body is not disabled when the modal is open
-`beforeOpen`: A `function` that is invoked before the modal opens. If this function returns a promise, then the modal is opened after the promise is resolved
-`afterOpen`: A `function` that is invoked after the modal opens
-`beforeClose`: A `function` that is invoked before the modal closes
-`afterClose`: A `function` that is invoked after the modal closes
-`
+`modalBackgroundStyle`: `object` of camelCase css properties if using theming use property `themeStyle` with corresponding theme value  
+`isOpen`: A `boolean` that indicates whether the modal is to be open or closed  
+`onBackgroundClick`: A `function` that is invoked when the modal background is clicked  
+`onEscapeKeydown`: A `function` that is invoked when the escape key is pressed while the modal is open  
+`allowScroll`: A `boolean` when `true`, scrolling in the document body is not disabled when the modal is open  
+`beforeOpen`: A `function` that is invoked before the modal opens. If this function returns a promise, then the modal is opened after the promise is resolved  
+`afterOpen`: A `function` that is invoked after the modal opens, can be asynchronous  
+`beforeClose`: A `function` that is invoked before the modal closes, can be asynchronous  
+`afterClose`: A `function` that is invoked after the modal closes, can be asynchronous  
 
 ```javascript
-import { ModalProvider, Modal } from 'styled-react';
+import { ModalProvider, Modal } from "styled-react";
 
 <ModalProvider>
   <App />
@@ -399,7 +389,7 @@ function ModalDemo(props) {
   const toggleModal = e => setIsOpen(!isOpen);
 
   function beforeOpen() {
-    alert('Im about to open');
+    alert("Im about to open");
   }
 
   return (
@@ -428,7 +418,3 @@ To change the `Box` component to different element types i.e. `<span></span> <p>
   I am now a styled paragraph element
 </Box>
 ```
-
-## Theme
-
-Theming can be used to restrict css style rules and provide easy to use responsive design. A default theme is provided if none is provided. 

@@ -4,4 +4,8 @@ examples
 .gitignore
 node_modules
 webpack.config.js
+lib
+dist-dev
+.vscode
 .local-notes.md
+NOTES.md

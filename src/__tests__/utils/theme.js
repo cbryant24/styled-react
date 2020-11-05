@@ -1,7 +1,7 @@
 const red = '#e42d42';
 const white = '#ffffff';
 const black = '#000000';
-const primary = red;
+const primary = '#ffff00';
 const secondary = '#4F4FEB';
 export const colors = {
   red,
@@ -11,7 +11,7 @@ export const colors = {
   secondary
 };
 
-const createMediaQuery = n => `@media screen and (min-width:${n}px)`;
+const createMediaQuery = n => `@media screen and (min-width:${n})`;
 
 const addAliases = (arr, aliases) =>
   aliases.forEach((key, i) =>
@@ -26,7 +26,7 @@ const addAliases = (arr, aliases) =>
   );
 
 const aliases = ['sm', 'md', 'lg', 'xl'];
-const breakpoints = ['544px', '768px', '1012px', '1280px'];
+const breakpoints = ['45px', '45em', '50em', '60em'];
 
 const mediaQueries = {
   ...breakpoints.map(createMediaQuery),
@@ -41,11 +41,11 @@ const emoji = '"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"';
 const font = `development,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif,${emoji}`;
 const mono = 'SFMono-Regular,"Roboto Mono",Menlo,monospace';
 
-const fontSizes = [0, '1.2em', '1.6em', '1.8em', '2em'];
+const fontSizes = [0, '12px', '16px', '18px', '20px'];
 
 //margin/padding[all, left, right top bottom]
 //grid [grid-gap, grid-column-gap, grid-row-gap]
-const space = [0, '.5em', '1em', '1.5em', '2em'];
+const space = [0, '.5rem', '1rem', '1.5rem', '2rem'];
 
 //width, height, min-width, max-width, min-height, max-height
 const sizes = ['0%', '100%', '50%', '33%', '25%', '20%', '10%'];
@@ -56,7 +56,7 @@ const lineHeights = { condensedUltra: 1, condensed: 1.25, default: 1.5 };
 //of modular design with font-size rem for global design and font-size em for local design
 //see https://css-tricks.com/rem-global-em-local/ for explanation `fontSizesModule` is a
 //custom system-styled property that can be used with the scale for parent module font-size design
-const fontSizesModule = [0, '.75rem', '1rem', '1.25rem', '1.5rem'];
+const fontSizesModule = [0, '2.5rem', '2rem', '1.5rem', '1rem'];
 
 const light = 300;
 const regular = 400;

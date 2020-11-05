@@ -1,5 +1,7 @@
 # Animations
 
+Styled React animations are defined using plain javascript objects with properties to represent the type off css animation, duration, and count.
+
 ## In Animation
 
 The `in` animation property receives a plain javascript object that represents the animation keyframes using either the keywords `from` and `to` or using `0%` up to `100%` representation
@@ -73,12 +75,12 @@ Multiple animations can be used if needing to transition between `in`, `out`, an
     },
     delay_between: 4,
     out: {
-      from: { 'background-color': 'red' },
-      to: { 'background-color': 'yellow' }
+      from: { "background-color": "red" },
+      to: { "background-color": "yellow" }
     },
     duration_out: 4,
     duration_in: 2,
-    animation_fill_mode: 'forwards'
+    animation_fill_mode: "forwards"
   }}
   >
     Im animating "in" then "out"
@@ -92,12 +94,12 @@ Multiple animations can be used if needing to transition between `in`, `out`, an
       to: { opacity: 1 }
     },
     continuous: {
-      from: { 'background-color': 'red' },
-      to: { 'background-color': 'yellow' }
+      from: { "background-color": "red" },
+      to: { "background-color": "yellow" }
     },
     duration_continuous: 4,
     duration_in: 2,
-    animation_fill_mode: 'forwards'
+    animation_fill_mode: "forwards"
   }}>
     Im animating "in" then "continuosly"
   </Box>

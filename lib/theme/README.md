@@ -9,7 +9,7 @@ Theme values that correspond to css values are described in plural format compar
 ```javascript
   const theme = {
     ...
-    fontSizes: [0,'2em','1.5em','1em','.5em'],
+    fontSizes: [0,"2em","1.5em","1em",".5em"],
     ...
     lineHeights: {
       solid: 1,
@@ -22,7 +22,7 @@ Theme values that correspond to css values are described in plural format compar
   <ThemeProvider>
     <Div 
       fontSize={1}
-      lineHeight='title'
+      lineHeight="title"
     >
       Im Using Theme Responsiveness
     </Div>
@@ -38,17 +38,17 @@ Theme values that correspond to css values are described in plural format compar
 
 ## Responsive Design
 
-Responsive design is set using the default breakpoints `'544px', '768px', '1012px', '1280px'` for mobile first approach. When defining styles, using an array will correspond to theme breakpoints and the style theme array values mentioned [in Theme Scale Values](#theme-scale-values). The `null` or `''` will maintain the value set in the prior array spot if the need for skipping styling at a breakpoint.
+Responsive design is set using the default breakpoints `"544px", "768px", "1012px", "1280px"` for mobile first approach. When defining styles, using an array will correspond to theme breakpoints and the style theme array values mentioned [in Theme Scale Values](#theme-scale-values). The `null` or `""` will maintain the value set in the prior array spot if the need for skipping styling at a breakpoint.
 
 ```javascript
   const theme = {
     ...
-    breakpoints: ['544px', '768px', '1012px', '1280px'],
+    breakpoints: ["544px", "768px", "1012px", "1280px"],
     // Space is a specifically named scale that pertains to:
     // margin, padding, and layout-related CSS properties i.e. ‘grid-gap’,’grid-column-gap’
-    space: [0, '1em','2em','3em','4em'],
+    space: [0, "1em","2em","3em","4em"],
     //width, height, min-width, max-width, min-height, max-height
-    sizes: ['0%', '100%', '50%', '33%', '25%', '20%'];
+    sizes: ["0%", "100%", "50%", "33%", "25%", "20%"];
     ...
   }
 
@@ -177,14 +177,14 @@ Colors are defined as a plain javascript object in the theme and accessed by the
 const theme = {
   ...
   colors: {
-    primary: '#FE2711',
+    primary: "#FE2711",
     ...
     blacks: [
-    'rgba(0,0,0,.0125)',
-    'rgba(0,0,0,.025)',
-    'rgba(0,0,0,.05)',
-    'rgba(0,0,0,.1)',
-    'rgba(0,0,0,.2)',
+    "rgba(0,0,0,.0125)",
+    "rgba(0,0,0,.025)",
+    "rgba(0,0,0,.05)",
+    "rgba(0,0,0,.1)",
+    "rgba(0,0,0,.2)",
       ...
     ],
     ...
@@ -256,8 +256,8 @@ const squareButton = {
 const largeButton = {
   px: [2, 3],
   py: [2, 3],
-  color: 'blue',
-  backgroundColor: 'yellow'
+  color: "blue",
+  backgroundColor: "yellow"
 }
 
 <ThemeProvider themeStyles={{ squareButton, largeButton }}>
@@ -312,12 +312,12 @@ For a list of default name styling that can be used [see list](https://gist.gith
 
 ### Remove Prop
 
-If using a `themeStyle` on a component you can remove specified styles from the `themeStyle` by using the `remove` property with a `string` value the name of the camelCase css property or array or camelCase css properties to remove
+If using a `themeStyle` on a component you can remove specified styles from the `themeStyle` by using the `remove` prop with a `string` value of the css property (camelCase if hyphenated i.e. `max-height` as `maxHeight`) or array of css properties to remove.
 
 ```javascript
 <Button
   id="button-colored"
-  themeStyle={['squareButton', 'largeButton']}
+  themeStyle={["squareButton", "largeButton"]}
   remove="backgroundColor"
   backgroundColor="#800080"
 >
@@ -349,26 +349,26 @@ If using a `themeStyle` on a component you can remove specified styles from the 
 }
 ```
 
-## Change Default Theme Settings
+## Change Default Theme CSS
 
-To change any default settings use the `replaceTheme` prop on the `<ThemeProvider>` representing an object with the replaced scale, object, or string value for the appropriate corresponding theme key see [list for theme properties](#theme-names-and-keys)
+To change any default theme css use the `replaceTheme` prop on the `<ThemeProvider>` representing an object with either the replaced scale, object, or string value for the appropriate corresponding theme key see [list for theme properties](#theme-names-and-keys)
 
 ```javascript
   /// default theme
   theme = {
     colors: {
-      primary: '#FE2711'
+      primary: "#FE2711"
       ...
     },
-    fontSizes: [0,'2em','1.5em','1em','.5em']
+    fontSizes: [0,"2em","1.5em","1em",".5em"]
     ...
   }
 
   const newThemeVals = {
     color: {
-      primary: '#FFD300'
+      primary: "#FFD300"
     }
-    fontSizes: [0, '4em','3em','2em','1em']
+    fontSizes: [0, "4em","3em","2em","1em"]
   }
 
   <ThemeProvider replaceTheme={newThemeVals}>
@@ -395,27 +395,27 @@ To change any default settings use the `replaceTheme` prop on the `<ThemeProvide
 To define theme media queries used in the scale for styling use the [replaceTheme property](#change-default-theme-settings) and define the `breakpoints` property with an array of css unit strings representing each breakpoint that will be used with the `@media screen and (min-width: $val)` for scaled theme values. 
 
 `breakpoints` can also accept a mixed css units for the breakpoints scale  
-  `const breakpoints = ['200px', '10vw', '42rem', '55em']`   
+  `const breakpoints = ["200px", "10vw", "42rem", "55em"]`   
 
 `breakpoints` can contain as many breakpoints as necessary  
-  `const breakpoints = ['200px', '300px', '400px', '500px', '600px', '700px']`
+  `const breakpoints = ["200px", "300px", "400px", "500px", "600px", "700px"]`
 
 
 ```javascript
   /// default theme
   theme = {
   ...
-   breakpoints: ['544px', '768px', '1012px', '1280px'];
-   fontSizes: [0,'2em', '1.5em','1em', '.5em'];
+   breakpoints: ["544px", "768px", "1012px", "1280px"];
+   fontSizes: [0,"2em", "1.5em","1em", ".5em"];
     ...
   }
 
   const newThemeVals = {
-    breakpoints: ['230px', '34em', '43rem', '900px']
+    breakpoints: ["230px", "34em", "43rem", "900px"]
   }
 
   <ThemeProvider replaceTheme={newThemeVals}>
-    <Div id="div-styled"  fontSize={[1,null,4,'20px','30px','36px' ]}
+    <Div id="div-styled"  fontSize={[1,null,4,"20px","30px","36px" ]}
 >
       Im New Styled Theme
     </Div>
