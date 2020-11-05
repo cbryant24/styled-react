@@ -62,7 +62,6 @@ const AppForm = () => {
   };
 
   function userSignin() {
-    debugger
   }
 
   return (

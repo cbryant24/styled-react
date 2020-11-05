@@ -39,7 +39,6 @@ const breakpoints = ['40em', '45em', '50em', '60em'];
 //   reduceMotion: '@media (prefers-reduced-motion: reduce)',
 //   reduceTransparency: '@media (prefers-reduced-transparency: reduce)'
 // };
-// debugger
 
 // addAliases(breakpoints, aliases);
 // addAliases(mediaQueries, aliases);
