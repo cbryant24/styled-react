@@ -20,16 +20,6 @@ const Title = () => {
     duration_in: 2
   };
 
-  // const continousAnimation = {
-  //   continuous: {
-  //     from: { opacity: 0 },
-  //     to: { opacity: 1 }
-  //   },
-  //   duration_continuous: 3,
-  //   animation_direction: 'alternate-reverse'
-  // }
-  
-  // debugger;
   return (
     <Div bg="black" height="200px" width="400px" display="flex" justifyContent="center" alignItems="center">
       <Div themeStyle="animationStyle">Hello Old Friend</Div>

@@ -1,6 +1,6 @@
 {
   "name": "@cbryant24/styled-react",
-  "version": "0.0.40",
+  "version": "0.1.1",
   "description": "CSS Styles can be applied to components by writing css styles as props or themeing",
   "main": "dist/main.js",
   "keywords": [
@@ -22,6 +22,11 @@
     "watch:production": "webpack --config-name styled-react-npm --mode production --watch",
     "prepublishOnly": "npm run build",
     "lint:css": "stylelint './src/**/*.js'"
+  },
+  "homepage": "https://github.com/cbryant24/styled-react",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/cbryant24/styled-react"
   },
   "dependencies": {
     "@styled-system/css": "^5.0.23",
