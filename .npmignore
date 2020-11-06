@@ -8,4 +8,7 @@ lib
 dist-dev
 .vscode
 .local-notes.md
+.jshintrc
+.stylelintrc
+.jsconfig.json
 NOTES.md

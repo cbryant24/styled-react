@@ -67,7 +67,6 @@ const InfiniteCarousel = ({
     const fromEndCarouselToBeginning =
       prevActiveSlideIndex === 0 && activeSlideIndex === carouselLengthEnd;
 
-    // debugger;
     while (lowerLimit < upperLimit) {
       const scale = lowerLimit === activeSlideIndex ? 1.2 : 1.0;
       //FUNCTION TO SET CAROUSEL TRANSLATE POSITIONS
@@ -118,9 +117,6 @@ const InfiniteCarousel = ({
                       transform: `translateY(${i * bp}) rotate(180deg)`,
                       'background-color': 'yellow'
                     }
-                    // '0%': { opacity: 1 },
-                    // '1%': { height: '120px' },
-                    // '100%': { backgroundColor: 'blue', width: '1200px' }
                   },
                   duration_in: 10,
                   animation_fill_mode: 'forwards'
@@ -131,7 +127,6 @@ const InfiniteCarousel = ({
           }
 
           if (prevActiveSlideIndex > activeSlideIndex) {
-            // debugger
             if (i + 1 === visibleCarouselCount) {
               const fromFrontToEnd = {
                 animation: {
@@ -163,7 +158,6 @@ const InfiniteCarousel = ({
           prevActiveSlideIndex < activeSlideIndex &&
           fromEndCarouselToBeginning
         ) {
-          debugger;
 
           //SETTING PREVIOUSLY VISIBLE CAROUSEL ITEM TO TRANISITON OUT OF CAROUSEL FROM LEFT
           if (i + 1 === visibleCarouselCount) {
@@ -285,8 +279,7 @@ const InfiniteCarousel = ({
                 animation_fill_mode: 'forwards'
               }
             };
-            // if ()
-            debugger;
+
             if (lowerLimit >= children.length - 1) {
               carouselPositions[
                 lowerLimit - children.length + 1
@@ -302,14 +295,12 @@ const InfiniteCarousel = ({
           }
 
           if (i + 1 === visibleCarouselCount) {
-            // carouselItemTranslate.animation.in.from = outFromRight;
             return carouselItemTranslate;
           }
         }
         return carouselItemTranslate;
       })();
 
-      debugger;
       if (children[lowerLimit]) {
         carouselPositions[lowerLimit] = carouselItemTransform;
         lowerLimit++;
@@ -376,7 +367,6 @@ const InfiniteCarousel = ({
   }
 
   function getTranslatePosition(index) {
-    // debugger;
     if (carouselTranslateVals[index]) return carouselTranslateVals[index];
 
     return {
