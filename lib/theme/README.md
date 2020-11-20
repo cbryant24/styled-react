@@ -2,6 +2,32 @@
 
 Themeing is intended to be a general purpose format for storing design system style values and scales. For more info on themeing see [styled-system documentation](https://styled-system.com/theme-specification)
 
+## Getting Started
+
+To begin using theming import the `ThemeProvider` from Styled-React. To using theming for the entire application Wrap the `<App></App>` component with `ThemeProvider`. For component level theming the `ThemeProvider` can be used to wrap a lower component tree for seperate component level theming. 
+
+```javascript
+import { ThemeProvider, ModalProvider } from '@cbryant24/styled-react';
+
+  <ThemeProvider theme={componentTheme}>
+    <App />
+  </ThemeProvider>
+```
+
+Or for component level theming
+```javascript
+import { ThemeProvider, ModalProvider } from '@cbryant24/styled-react';
+
+
+  <ThemeProvider theme={componentTheme}>
+    <Div bg="blue" height={['100vh']} width={['100vw']}>
+      <Div>
+        <H1 color="black">Im Lower Level Theme</H1>
+      </Div>
+    </Div>
+  </ThemeProvider>
+```
+
 ## Theme Scale Values
 
 Theme values that correspond to css values are described in plural format compared to their css property name and assigned a value in array or object format which can be accessed via their index or property name

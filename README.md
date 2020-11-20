@@ -332,7 +332,7 @@ const customAnimation = {
 <Box animation={animation}>animating div</Box>;
 ```
 
-For more details about creating custom animations [see additional documentation here](animations_readme.md)
+For more details about creating custom animations [see additional documentation here](https://github.com/cbryant24/styled-react/tree/master/lib/animations)
 
 ## Psuedo Classes/Elements
 
