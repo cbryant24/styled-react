@@ -6,10 +6,11 @@ Themeing is intended to be a general purpose format for storing design system st
 
 To begin using theming import the `ThemeProvider` from Styled-React. To using theming for the entire application Wrap the `<App></App>` component with `ThemeProvider`. For component level theming the `ThemeProvider` can be used to wrap a lower component tree for seperate component level theming. 
 
+To see default theme settings [see here]()
 ```javascript
 import { ThemeProvider, ModalProvider } from '@cbryant24/styled-react';
 
-  <ThemeProvider theme={componentTheme}>
+  <ThemeProvider>
     <App />
   </ThemeProvider>
 ```
@@ -377,7 +378,7 @@ If using a `themeStyle` on a component you can remove specified styles from the 
 
 ## Change Default Theme CSS
 
-To change any default theme css use the `replaceTheme` prop on the `<ThemeProvider>` representing an object with either the replaced scale, object, or string value for the appropriate corresponding theme key see [list for theme properties](#theme-names-and-keys)
+To change any default theme css use the `replaceTheme` prop on the `<ThemeProvider>` representing an object with either the replaced scale, object, or string value for the appropriate corresponding theme key see [list for theme properties](#theme-names-and-keys) and [see here](https://github.com/cbryant24/styled-react/blob/master/lib/theme/theme.js) for default theme settings
 
 ```javascript
   /// default theme
@@ -518,7 +519,6 @@ To define theme media queries used in the scale for styling use the [replaceThem
   /* font-size: 2em; */
 }
 ```
-
 ### Theme Names and Keys
 
 For styles defined in the theme and passed as a string or an array the following values can be used with your theme values
