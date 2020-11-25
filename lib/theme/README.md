@@ -1,32 +1,33 @@
-# Theme 
+# Theme
 
 Themeing is intended to be a general purpose format for storing design system style values and scales. For more info on themeing see [styled-system documentation](https://styled-system.com/theme-specification)
 
 ## Getting Started
 
-To begin using theming import the `ThemeProvider` from Styled-React. To using theming for the entire application Wrap the `<App></App>` component with `ThemeProvider`. For component level theming the `ThemeProvider` can be used to wrap a lower component tree for seperate component level theming. 
+To begin using theming import the `ThemeProvider` from Styled-React. To using theming for the entire application Wrap the `<App></App>` component with `ThemeProvider`. For component level theming the `ThemeProvider` can be used to wrap a lower component tree for seperate component level theming.
 
 To see default theme settings [see here]()
-```javascript
-import { ThemeProvider, ModalProvider } from '@cbryant24/styled-react';
 
-  <ThemeProvider>
-    <App />
-  </ThemeProvider>
+```javascript
+import { ThemeProvider } from '@cbryant24/styled-react';
+
+<ThemeProvider>
+  <App />
+</ThemeProvider>;
 ```
 
 Or for component level theming
+
 ```javascript
-import { ThemeProvider, ModalProvider } from '@cbryant24/styled-react';
+import { ThemeProvider } from '@cbryant24/styled-react';
 
-
-  <ThemeProvider theme={componentTheme}>
-    <Div bg="blue" height={['100vh']} width={['100vw']}>
-      <Div>
-        <H1 color="black">Im Lower Level Theme</H1>
-      </Div>
+<ThemeProvider theme={componentTheme}>
+  <Div bg="blue" height={['100vh']} width={['100vw']}>
+    <Div>
+      <H1 color="black">Im Lower Level Theme</H1>
     </Div>
-  </ThemeProvider>
+  </Div>
+</ThemeProvider>;
 ```
 
 ## Theme Scale Values
@@ -47,7 +48,7 @@ Theme values that correspond to css values are described in plural format compar
   }
 
   <ThemeProvider>
-    <Div 
+    <Div
       fontSize={1}
       lineHeight="title"
     >
@@ -55,7 +56,9 @@ Theme values that correspond to css values are described in plural format compar
     </Div>
   </ThemeProvider>
 ```
+
 > will produce
+
 ```css
 .guOTKZ {
   font-size: 2em;
@@ -80,17 +83,19 @@ Responsive design is set using the default breakpoints `"544px", "768px", "1012p
   }
 
   <ThemeProvider>
-    <Div 
-      margin={[1,2,3,null,4]}      
-      padding={[1,null,2,3]} 
-      width={[1,null,3,4]} 
+    <Div
+      margin={[1,2,3,null,4]}
+      padding={[1,null,2,3]}
+      width={[1,null,3,4]}
       height={[1,null,2,4]}
     >
       Im Using Theme Responsiveness
     </Div>
   </ThemeProvider>
 ```
-> will produce Div with css @ < 544px 
+
+> will produce Div with css @ < 544px
+
 ```css
 .hPKgNd {
   margin: 1em;
@@ -99,20 +104,21 @@ Responsive design is set using the default breakpoints `"544px", "768px", "1012p
   height: 100%;
 }
 ```
+
 > will produce Div with css @ > 544px
+
 ```css
-@media screen and (min-width: 544px)
-.bsrUSe {
-    margin: 2em;
+@media screen and (min-width: 544px) .bsrUSe {
+  margin: 2em;
 }
 
 .bsrUSe {
-    box-sizing: border-box;
-    min-width: 0;
-    /* margin: 1em; */
-    padding: 1em;
-    width: 100%;
-    height: 100%;
+  box-sizing: border-box;
+  min-width: 0;
+  /* margin: 1em; */
+  padding: 1em;
+  width: 100%;
+  height: 100%;
 }
 ```
 
@@ -137,62 +143,59 @@ Responsive design is set using the default breakpoints `"544px", "768px", "1012p
     /* height: 100%; /*
 }
 ```
+
 > will produce @ > 1012px
+
 ```css
-@media screen and (min-width: 1012px)
-.ioyvxB {
-    padding: 3em;
-    width: 25%;
-    height: 25%;
+@media screen and (min-width: 1012px) .ioyvxB {
+  padding: 3em;
+  width: 25%;
+  height: 25%;
 }
-@media screen and (min-width: 768px)
-.ioyvxB {
-    margin: 3em;
-    /* padding: 2em; */
-    /* width: 33%; */
-    /* height: 50%; */
+@media screen and (min-width: 768px) .ioyvxB {
+  margin: 3em;
+  /* padding: 2em; */
+  /* width: 33%; */
+  /* height: 50%; */
 }
-@media screen and (min-width: 544px)
-.ioyvxB {
-    /* margin: 2em; */
+@media screen and (min-width: 544px) .ioyvxB {
+  /* margin: 2em; */
 }
 .ioyvxB {
-    /* margin: 1em; */
-    /* padding: 1em; */
-    /* width: 100%; */
-    /* height: 100%; */
+  /* margin: 1em; */
+  /* padding: 1em; */
+  /* width: 100%; */
+  /* height: 100%; */
 }
 ```
+
 > will produce @ > 1280px
+
 ```css
-@media screen and (min-width: 1280px)
-.ioyvxB {
-    margin: 4em;
-    height: 20%;
+@media screen and (min-width: 1280px) .ioyvxB {
+  margin: 4em;
+  height: 20%;
 }
 
-@media screen and (min-width: 1012px)
-.ioyvxB {
-    padding: 3em;
-    width: 25%;
-    /* height: 25%%; */
+@media screen and (min-width: 1012px) .ioyvxB {
+  padding: 3em;
+  width: 25%;
+  /* height: 25%%; */
 }
-@media screen and (min-width: 768px)
-.ioyvxB {
-    /* margin: 3em; */
-    /* padding: 2em; */
-    /* width: 33%; */
-    /* height: 50%; */
+@media screen and (min-width: 768px) .ioyvxB {
+  /* margin: 3em; */
+  /* padding: 2em; */
+  /* width: 33%; */
+  /* height: 50%; */
 }
-@media screen and (min-width: 544px)
-.ioyvxB {
-    /* margin: 2em; */
+@media screen and (min-width: 544px) .ioyvxB {
+  /* margin: 2em; */
 }
 .ioyvxB {
-    /* margin: 1em; */
-    /* padding: 1em; */
-    /* width: 100%; */
-    /* height: 100%; */
+  /* margin: 1em; */
+  /* padding: 1em; */
+  /* width: 100%; */
+  /* height: 100%; */
 }
 ```
 
@@ -219,7 +222,7 @@ const theme = {
 }
 
   <ThemeProvider>
-    <Div 
+    <Div
       backgroundColor="primary"
       color="black.3"
     >
@@ -227,13 +230,16 @@ const theme = {
     </Div>
   </ThemeProvider>
 ```
+
 > will produce
+
 ```css
 .BHyhc {
-    background-color: #FE2711;
-    color: rgba(0,0,0,.1);
+  background-color: #fe2711;
+  color: rgba(0, 0, 0, 0.1);
 }
 ```
+
 ### Default Colors
 
 For a list of all default theme colors [see here](https://gist.github.com/cbryant24/5af1f550698c40a09c7f69e89fec45f1)
@@ -293,44 +299,44 @@ const largeButton = {
 </ThemeProvider>
 
 ```
+
 > will produce
 
 ```css
 #button-1.enrqno {
-    display: inline-block;
-    box-shadow: none;
-    background-color: #FE2711;
-    -webkit-text-decoration: none;
-    text-decoration: none;
-    -webkit-transition: box-shadow 0.125s ease-out 0s;
-    transition: box-shadow 0.125s ease-out 0s;
-    border-width: 2px;
-    border-style: solid;
-    border-color: #FE2711;
-    padding-left: 1em;
-    padding-right: 1em;
-    padding-top: 1em;
-    padding-bottom: 1em;
+  display: inline-block;
+  box-shadow: none;
+  background-color: #fe2711;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: box-shadow 0.125s ease-out 0s;
+  transition: box-shadow 0.125s ease-out 0s;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #fe2711;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 1em;
+  padding-bottom: 1em;
 }
 
 #button-2.kUVFAZ {
-    display: inline-block;
-    box-shadow: none;
-    background-color: #FEFE32;
-    -webkit-text-decoration: none;
-    text-decoration: none;
-    -webkit-transition: box-shadow 0.125s ease-out 0s;
-    transition: box-shadow 0.125s ease-out 0s;
-    border-width: 2px;
-    border-style: solid;
-    border-color: #FE2711;
-    padding-left: 2em;
-    padding-right: 2em;
-    padding-top: 2em;
-    padding-bottom: 2em;
-    color: #0147FE;
+  display: inline-block;
+  box-shadow: none;
+  background-color: #fefe32;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: box-shadow 0.125s ease-out 0s;
+  transition: box-shadow 0.125s ease-out 0s;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #fe2711;
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  color: #0147fe;
 }
-
 ```
 
 ### Default Name Styling
@@ -344,7 +350,7 @@ If using a `themeStyle` on a component you can remove specified styles from the 
 ```javascript
 <Button
   id="button-colored"
-  themeStyle={["squareButton", "largeButton"]}
+  themeStyle={['squareButton', 'largeButton']}
   remove="backgroundColor"
   backgroundColor="#800080"
 >
@@ -352,7 +358,7 @@ If using a `themeStyle` on a component you can remove specified styles from the 
 </Button>
 ```
 
-> Will produce 
+> Will produce
 
 ```css
 #button-colored.nnDmQ {
@@ -367,12 +373,12 @@ If using a `themeStyle` on a component you can remove specified styles from the 
   transition: box-shadow 0.125s ease-out 0s;
   border-width: 2px;
   border-style: solid;
-  border-color: #FE2711;
+  border-color: #fe2711;
   padding-left: 2em;
   padding-right: 2em;
   padding-top: 2em;
   padding-bottom: 2em;
-  color: #0147FE;
+  color: #0147fe;
 }
 ```
 
@@ -404,29 +410,29 @@ To change any default theme css use the `replaceTheme` prop on the `<ThemeProvid
     </Div>
   </ThemeProvider>
 ```
+
 > will produce
+
 ```css
-@media screen and (min-width: 768px)
-#div-styled.bxdpDO {
+@media screen and (min-width: 768px) #div-styled.bxdpDO {
   font-size: 3em;
 }
 
 #div-styled.bxdpDO {
   /* font-size: 4em; */
-  background-color: #FFD300;
+  background-color: #ffd300;
 }
 ```
 
 ### Theme Media Queries
 
-To define theme media queries used in the scale for styling use the [replaceTheme property](#change-default-theme-settings) and define the `breakpoints` property with an array of css unit strings representing each breakpoint that will be used with the `@media screen and (min-width: $val)` for scaled theme values. 
+To define theme media queries used in the scale for styling use the [replaceTheme property](#change-default-theme-settings) and define the `breakpoints` property with an array of css unit strings representing each breakpoint that will be used with the `@media screen and (min-width: $val)` for scaled theme values.
 
 `breakpoints` can also accept a mixed css units for the breakpoints scale  
-  `const breakpoints = ["200px", "10vw", "42rem", "55em"]`   
+ `const breakpoints = ["200px", "10vw", "42rem", "55em"]`
 
 `breakpoints` can contain as many breakpoints as necessary  
-  `const breakpoints = ["200px", "300px", "400px", "500px", "600px", "700px"]`
-
+ `const breakpoints = ["200px", "300px", "400px", "500px", "600px", "700px"]`
 
 ```javascript
   /// default theme
@@ -448,48 +454,33 @@ To define theme media queries used in the scale for styling use the [replaceThem
     </Div>
   </ThemeProvider>
 ```
-> will produce Div with css @ < 230px 
+
+> will produce Div with css @ < 230px
+
 ```css
 #div-styled.dmwkrj {
   font-size: 2em;
 }
 ```
-> will produce Div with css @ > 230px 
+
+> will produce Div with css @ > 230px
+
 ```css
-@media screen and (min-width: 230px)
-#div-styled.jUmxCe {
+@media screen and (min-width: 230px) #div-styled.jUmxCe {
   font-size: 1.5em;
 }
 #div-styled.jUmxCe {
   /* font-size: 2em; */
 }
 ```
-> will produce Div with css @ > 34em 
+
+> will produce Div with css @ > 34em
+
 ```css
-@media screen and (min-width: 34em)
-#div-styled.jUmxCe {
+@media screen and (min-width: 34em) #div-styled.jUmxCe {
   font-size: 1em;
 }
-@media screen and (min-width: 230px)
-#div-styled.jUmxCe {
-  /* font-size: 1.5em; */
-}
-#div-styled.jUmxCe {
-  /* font-size: 2em; */
-}
-```
-> will produce Div with css @ > 43em 
-```css
-@media screen and (min-width: 43rem)
-#div-styled.jUmxCe {
-  font-size: .5em;
-}
-@media screen and (min-width: 34em)
-#div-styled.jUmxCe {
-  /* font-size: 1em; */
-}
-@media screen and (min-width: 230px)
-#div-styled.jUmxCe {
+@media screen and (min-width: 230px) #div-styled.jUmxCe {
   /* font-size: 1.5em; */
 }
 #div-styled.jUmxCe {
@@ -497,59 +488,74 @@ To define theme media queries used in the scale for styling use the [replaceThem
 }
 ```
 
-> will produce Div with css @ > 900px 
+> will produce Div with css @ > 43em
+
 ```css
-@media screen and (min-width: 900px)
-#div-styled.jUmxCe {
-  font-size: 20px;
+@media screen and (min-width: 43rem) #div-styled.jUmxCe {
+  font-size: 0.5em;
 }
-@media screen and (min-width: 43rem)
-#div-styled.jUmxCe {
-  /* font-size: .5em; */
-}
-@media screen and (min-width: 34em)
-#div-styled.jUmxCe {
+@media screen and (min-width: 34em) #div-styled.jUmxCe {
   /* font-size: 1em; */
 }
-@media screen and (min-width: 230px)
-#div-styled.jUmxCe {
+@media screen and (min-width: 230px) #div-styled.jUmxCe {
   /* font-size: 1.5em; */
 }
 #div-styled.jUmxCe {
   /* font-size: 2em; */
 }
 ```
+
+> will produce Div with css @ > 900px
+
+```css
+@media screen and (min-width: 900px) #div-styled.jUmxCe {
+  font-size: 20px;
+}
+@media screen and (min-width: 43rem) #div-styled.jUmxCe {
+  /* font-size: .5em; */
+}
+@media screen and (min-width: 34em) #div-styled.jUmxCe {
+  /* font-size: 1em; */
+}
+@media screen and (min-width: 230px) #div-styled.jUmxCe {
+  /* font-size: 1.5em; */
+}
+#div-styled.jUmxCe {
+  /* font-size: 2em; */
+}
+```
+
 ### Theme Names and Keys
 
 For styles defined in the theme and passed as a string or an array the following values can be used with your theme values
 
-| Property            | Theme Key       | alias |
-| ------------------- | --------------- | ----- |
-| fontFamily          | fonts           | 
+| Property            | Theme Key       | alias        |
+| ------------------- | --------------- | ------------ |
+| fontFamily          | fonts           |
 | fontSize            | fontSizes       |
 | fontWeight          | fontWeights     |
 | lineHeight          | lineHeights     |
 | letterSpacing       | letterSpacings  |
 | color               | colors          |
 | backgroundColor, bg | colors          |
-| margin              | space           | m     
-| marginTop           | space           | mt
-| marginRight         | space           | mr
-| marginBottom        | space           | mb
-| marginLeft          | space           | ml
-| marginLeft &        | space           | mx, marginX
+| margin              | space           | m            |
+| marginTop           | space           | mt           |
+| marginRight         | space           | mr           |
+| marginBottom        | space           | mb           |
+| marginLeft          | space           | ml           |
+| marginLeft &        | space           | mx, marginX  |
 | marrginRight        |                 |
-| marginTop &         | space           | my, marginY
+| marginTop &         | space           | my, marginY  |
 | marginBottom        |                 |
-| padding             | space           | p
-| paddingTop          | space           | pt
-| paddingRight        | space           | pr
-| paddingBottom       | space           | pb
-| paddingLeft         | space           | pl
-| paddingLeft &       | space           | px, paddingX
+| padding             | space           | p            |
+| paddingTop          | space           | pt           |
+| paddingRight        | space           | pr           |
+| paddingBottom       | space           | pb           |
+| paddingLeft         | space           | pl           |
+| paddingLeft &       | space           | px, paddingX |
 | paddingRight        |                 |
-| paddingBottom &     | space           | py, paddingY
-| paddingTop          |                 | 
+| paddingBottom &     | space           | py, paddingY |
+| paddingTop          |                 |
 | top                 | space           |
 | bottom              | space           |
 | left                | space           |
